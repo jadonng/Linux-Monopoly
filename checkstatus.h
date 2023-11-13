@@ -1,4 +1,8 @@
-
-#ifndef SEARCHWORD_H
-#define SEARCHWORD_H
+//checkstatus.h
+#ifndef CHECKSTATUS_H
+#define CHECKSTATUS_H
 using namespace std;
+
+void checkstatus(player p, Cell board[]);
+
+#endif
