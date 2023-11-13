@@ -16,6 +16,7 @@ void loadBoard(Cell Board[40]){
     for (int i=0; i<40; i++){
         fin >> Board[i].type >> Board[i].name >> Board[i].price >> Board[i].rent;
         Board[i].owner = "Bank";
+        Board[i].ID=i;
     }
     fin.close();
 }
