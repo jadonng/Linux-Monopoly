@@ -1,6 +1,7 @@
 //checkstatus.cpp
 #include <iostream>
 #include <string>
+#include <vector>
 #include "board.h"
 #include "players.h"
 #include "checkstatus.h"
