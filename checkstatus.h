@@ -5,6 +5,6 @@
 #include "board.h"
 using namespace std;
 
-void checkstatus(player p, Cell board[]);
+void checkstatus(Player p, Cell board[]);
 
 #endif
