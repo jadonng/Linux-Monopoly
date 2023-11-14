@@ -1,5 +1,5 @@
 //players.h
-#include "Cell.h"
+#include "board.h"
 #include <vector>
 
 #ifndef PLAYERS_H
