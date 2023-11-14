@@ -2,10 +2,10 @@
 #include <iostream>
 #include <string>
 #include "board.h"
-#include "player.h"
+#include "players.h"
 
-void buy(Cell Board[40], string Player){
-    if (Board[Player.location].type == 0){
+void buy(Cell Board[40], Player player){
+    if (Board[player.location].type == 0){
         if (Board[Player.location].owner == "Bank"){
             if (Player.money >= Board[Player.location].price){
                 Player.money -= Board[Player.location].price;
