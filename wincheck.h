@@ -4,6 +4,6 @@
 #include "players.h"
 using namespace std;
 
-bool wincheck(player p1, player p2);
+bool wincheck(Player p1, Player p2);
 
 #endif
