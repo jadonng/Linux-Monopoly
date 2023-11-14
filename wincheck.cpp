@@ -9,7 +9,7 @@ using namespace std;
 //if one of them wins, return true,
 //else return false
 
-bool wincheck(players p1, players p2){
+bool wincheck(player p1, player p2){
     const int money_to_win=1000;
     if(p1.money >= money_to_win || p2.money <= 0){
         cout<<"Player 1 wins!"<<endl;
