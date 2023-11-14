@@ -27,43 +27,43 @@ struct Cell{
 	        int chance_no = rand()%7
 	        switch (chance_no) {
 		        case 0: // advance_to_go
-			        std::cout << “Chance: Advance to Go” << std::endl;
-			        std::cout << “Move to Go and collect $200” << std::endl;
+			        cout << “Chance: Advance to Go” << endl;
+			        cout << “Move to Go and collect $200” << endl;
 			        player.pos = board;
 			        player.money += 200;
 			        break;
 		        case 1: // bank dividend
-			        std::cout << “Chance: Bank Dividend” << std::endl;
-			        std::cout << “Collect $50 as bank dividend” << std::endl;
+			        cout << “Chance: Bank Dividend” << endl;
+			        cout << “Collect $50 as bank dividend” << endl;
 			        player.money += 50;
 			        break;
 		        case 2: // go back 3 spaces
-			        std::cout << “Chance: Go Back 3 Spaces” << std::endl;
-			        std::cout << “Move backward by 3 cells” << std::endl;
+			        cout << “Chance: Go Back 3 Spaces” << endl;
+			        cout << “Move backward by 3 cells” << endl;
 			        player.pos -= 3;
 			        break;
 		        case 3: // tax
-			        std::cout << “Chance: Tax” << std::endl;
-			        std::cout << “Pay $15 as tax” << std::endl;
+			        cout << “Chance: Tax” << endl;
+			        cout << “Pay $15 as tax” << endl;
 			        player.money -= 15
 			        break;
 		        case 4: // loan matures
-			        std::cout << “Chance: Loan Matures” << std::endl;
-			        std::cout << “Your bank loan matures, and collect $150” << std::endl;
+			        cout << “Chance: Loan Matures” << endl;
+			        cout << “Your bank loan matures, and collect $150” << endl;
 			        player.money += 150
 			        break;
 		        case 5: // Release From Jail
-			        std::cout << “Chance: Release From Jail” << std::endl;
-			        std::cout << “Move out of jail” << std::endl;
+			        cout << “Chance: Release From Jail” << endl;
+			        cout << “Move out of jail” << endl;
 			        if (player.pos->type == 4) {
 				        player.pos++;
 			        } else {
-				        std::cout << “You are currently not in jail. No action is done.” << std::endl;
+				        cout << “You are currently not in jail. No action is done.” << endl;
 			        }
 			        break;
                 case 6: // advance to MTR Exit B
-	                std::cout << “Chance: Advance to MTR Exit B” << std::endl;
-	                std::cout << “Move to MTR Exit B, collect $200 if pass through GO” << std::endl;
+	                cout << “Chance: Advance to MTR Exit B” << endl;
+	                cout << “Move to MTR Exit B, collect $200 if pass through GO” << endl;
                     if (player.pos > &board[26]) { // pass through GO
                         player.money += 200;
                     }
