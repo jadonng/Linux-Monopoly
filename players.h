@@ -1,4 +1,7 @@
 //players.h
+#include "Cell.h"
+#include <vector>
+
 #ifndef PLAYERS_H
 #define PLAYERS_H
 
