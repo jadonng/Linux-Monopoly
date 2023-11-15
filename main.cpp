@@ -151,7 +151,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
     }
     // To jail
     else if (type == 5) { 
-        cout << "1: Use get out of jail card (you currently have " << cur_player.jail_card << " of these cards)" << endl;
+        cout << "1: Use get out of jail card" << endl;
         cout << "2: Check game status" << endl;
         cout << "3: End Round" << endl;
         getline(cin, choice);
@@ -162,7 +162,13 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
         // Handle user valid choice
         switch (stoi(choice)) {
             case 1:
-                cout << "You have used one get out of jail card, you still own " << cur_player.jail_card << " card(s)." << endl;
+                if (cur_player.has_card) {
+                    cout << "You have used one get out of jail card." << endl;
+                }
+                else {
+                    cout << "You do not own any jail card." << endl;
+                }
+                actionAfterRoll(cur_player, Board, 10); //so do not reloop back to 'to jail' choices
             case 2:
                 checkstatus(cur_player, Board);
                 actionAfterRoll(cur_player, Board, type);
