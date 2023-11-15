@@ -49,8 +49,8 @@ int main() {
     // Load players
     int num_player = 2;
     vector<int> vec1, vec2;
-    Player p1 = { p1_name, &Board[0], initial_cash, vec1};
-    Player p2 = { p2_name, &Board[0], initial_cash, vec2};
+    Player p1 = { 0, p1_name, &Board[0], initial_cash, vec1};
+    Player p2 = { 1, p2_name, &Board[0], initial_cash, vec2};
     Player player_array[] = { p1, p2 };
 
     //printboard()
