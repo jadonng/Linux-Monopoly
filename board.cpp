@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "board.h"
+#include "structures.h"
 using namespace std;
 
 void loadBoard(Cell Board[40]){

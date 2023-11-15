@@ -39,7 +39,7 @@ struct Cell{
             case 3: 
 	        // event to be triggered if player land on chance
 	        srand(time(NULL));
-	        int chance_no = rand()%7
+	        int chance_no = rand()%6+1;
 	        switch (chance_no) {
 		        case 0: // advance_to_go
 			        cout << "Chance: Advance to Go" << endl;
@@ -60,12 +60,12 @@ struct Cell{
 		        case 3: // tax
 			        cout << "Chance: Tax" << endl;
 			        cout << "Pay $15 as tax" << endl;
-			        player.money -= 15
+			        player.money -= 15;
 			        break;
 		        case 4: // loan matures
 			        cout << "Chance: Loan Matures" << endl;
 			        cout << "Your bank loan matures, and collect $150" << endl;
-			        player.money += 150
+			        player.money += 150;
 			        break;
 		        case 5: // Release From Jail
 			        cout << "Chance: Release From Jail" << endl;

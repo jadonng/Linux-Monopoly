@@ -1,9 +1,10 @@
 //action.cpp
 #include <iostream>
 #include <string>
-#include "board.h"
-#include "players.h"
+#include "structures.h"
+#include "action.h"
 
+using namespace std;
 void buy(Cell Board[40], Player player){
     int position = player.pos->ID;
     if (Board[position].type == 0){
@@ -24,4 +25,12 @@ void buy(Cell Board[40], Player player){
     else{
         cout << Board[position].name << " is not a land, you cannot buy it" << endl;
     }
+}
+
+void payrent(Cell Board[40], Player playerstep, Player playerown){
+    int position = playerstep.pos->ID;
+    playerstep.money -= Board[position].rent;
+    playerown.money += Board[position].rent;
+    cout << "You have pay " << Board[position].rent << " to " << playerown.number << endl;
+    cout << "Your remaining balance is " << playerstep.money;
 }
