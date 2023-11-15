@@ -1,10 +1,25 @@
-// board.h
-#ifndef BOARD_H
-#define BOARD_H
+// structures.h
+#ifndef STRUCT_H
+#define STRUCT_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
+
+struct Player{
+  /* Explanation:
+     number:    player number, e.g. number = 1 for player 1
+     *pos:      position, e.g. pos = &board[10] if the player is at cell 10
+     money:     amount of money that the player has
+     land_list: vector listing the index of land that the player owns,
+                (e.g., if the player purchased land at cell c3 and c19, then land_list = {3, 19})
+  */
+	char number;
+	Cell *pos;
+	int money;
+	vector<int> land_list;
+};
 
 struct Cell{
     int ID;         //Location(0-39)
@@ -27,48 +42,48 @@ struct Cell{
 	        int chance_no = rand()%7
 	        switch (chance_no) {
 		        case 0: // advance_to_go
-			        cout << “Chance: Advance to Go” << endl;
-			        cout << “Move to Go and collect $200” << endl;
+			        cout << "Chance: Advance to Go" << endl;
+			        cout << "Move to Go and collect $200" << endl;
 			        player.pos = board;
 			        player.money += 200;
 			        break;
 		        case 1: // bank dividend
-			        cout << “Chance: Bank Dividend” << endl;
-			        cout << “Collect $50 as bank dividend” << endl;
+			        cout << "Chance: Bank Dividend" << endl;
+			        cout << "Collect $50 as bank dividend" << endl;
 			        player.money += 50;
 			        break;
 		        case 2: // go back 3 spaces
-			        cout << “Chance: Go Back 3 Spaces” << endl;
-			        cout << “Move backward by 3 cells” << endl;
+			        cout << "Chance: Go Back 3 Spaces" << endl;
+			        cout << "Move backward by 3 cells" << endl;
 			        player.pos -= 3;
 			        break;
 		        case 3: // tax
-			        cout << “Chance: Tax” << endl;
-			        cout << “Pay $15 as tax” << endl;
+			        cout << "Chance: Tax" << endl;
+			        cout << "Pay $15 as tax" << endl;
 			        player.money -= 15
 			        break;
 		        case 4: // loan matures
-			        cout << “Chance: Loan Matures” << endl;
-			        cout << “Your bank loan matures, and collect $150” << endl;
+			        cout << "Chance: Loan Matures" << endl;
+			        cout << "Your bank loan matures, and collect $150" << endl;
 			        player.money += 150
 			        break;
 		        case 5: // Release From Jail
-			        cout << “Chance: Release From Jail” << endl;
-			        cout << “Move out of jail” << endl;
+			        cout << "Chance: Release From Jail" << endl;
+			        cout << "Move out of jail" << endl;
 			        if (player.pos->type == 4) {
 				        player.pos++;
 			        } else {
-				        cout << “You are currently not in jail. No action is done.” << endl;
+				        cout << "You are currently not in jail. No action is done." << endl;
 			        }
 			        break;
-                case 6: // advance to MTR Exit B
-	                cout << “Chance: Advance to MTR Exit B” << endl;
-	                cout << “Move to MTR Exit B, collect $200 if pass through GO” << endl;
-                    if (player.pos > &board[26]) { // pass through GO
-                        player.money += 200;
-                    }
-                    player.pos = &board[26];
-                    break;
+      		          case 6: // advance to MTR Exit B
+	                	cout << "Chance: Advance to MTR Exit B" << endl;
+	        	        cout << "Move to MTR Exit B, collect $200 if pass through GO" << endl;
+                    		if (player.pos > &board[26]) { // pass through GO
+                        		player.money += 200;
+                    		}
+                    		player.pos = &board[26];
+                    		break;
 	            }
             case 4:
 	        // event to be triggered if player land on jail
