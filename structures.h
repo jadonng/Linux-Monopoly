@@ -20,6 +20,7 @@ struct Player{
 	Cell *pos;
 	int money;
 	vector<int> land_list;
+	bool has_card;
 };
 
 struct Cell{
