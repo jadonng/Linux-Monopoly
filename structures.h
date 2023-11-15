@@ -16,6 +16,7 @@ struct Player{
                 (e.g., if the player purchased land at cell c3 and c19, then land_list = {3, 19})
   */
 	char number;
+	string name;
 	Cell *pos;
 	int money;
 	vector<int> land_list;
