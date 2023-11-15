@@ -5,22 +5,23 @@
 #include "players.h"
 
 void buy(Cell Board[40], Player player){
-    if (Board[player.location].type == 0){
-        if (Board[Player.location].owner == "Bank"){
-            if (Player.money >= Board[Player.location].price){
-                Player.money -= Board[Player.location].price;
-                Board[Player.location].owner = Player.name;
-                cout << "You have bought " << Board[Player.location].name << " for " << Board[Player.location].price << endl;
+    int position = player.pos->ID;
+    if (Board[position].type == 0){
+        if (Board[position].owner == "Bank"){
+            if (player.money >= Board[position].price){
+                player.money -= Board[position].price;
+                Board[position].owner = player.number;
+                cout << "You have bought " << Board[position].name << " for " << Board[position].price << endl;
             }
             else{
-                cout << "You do not have enough money to buy " << Board[Player.location].name << endl;
+                cout << "You do not have enough money to buy " << Board[position].name << endl;
             }
         }
         else{
-            cout << Board[Player.location].name << " is already owned by " << Board[Player.location].owner << endl;
+            cout << Board[position].name << " is already owned by " << Board[position].owner << endl;
         }
     }
     else{
-        cout << Board[Player.location].name << " is not a land, you cannot buy it" << endl;
+        cout << Board[position].name << " is not a land, you cannot buy it" << endl;
     }
 }
