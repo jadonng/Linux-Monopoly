@@ -32,5 +32,5 @@ void payrent(Cell Board[40], Player playerstep, Player playerown){
     playerstep.money -= Board[position].rent;
     playerown.money += Board[position].rent;
     cout << "You have pay " << Board[position].rent << " to " << playerown.number << endl;
-    cout << "Your remaining balance is " << playerstep.money;
+    cout << "Your remaining balance is " << playerstep.money << endl;
 }
