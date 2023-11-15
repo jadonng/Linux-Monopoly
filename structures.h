@@ -19,8 +19,8 @@ struct Player{
 	string name;
 	Cell *pos;
 	int money;
-	vector<int> land_list;
-	bool has_card;
+	int has_card;           //number of card the player got
+	bool in_jail = false;   //if the player is in jail now
 };
 
 struct Cell{
@@ -34,6 +34,13 @@ struct Cell{
         switch (type) {
 	        case 0:
             // event to be triggered if player land on land
+		if(player.pos -> owner != "Bank"){
+			cout << "You have arrived " << player.pos -> name << " which is owned by " << player.pos -> owner << " with the rent of " << player.pos -> rent <<endl;
+		}
+		else{
+			cout << "You have arrived " << player.pos -> name << " which has no owner with the price of " << player.pos -> price << endl; 
+		}
+		break;
             case 1: 
 	        // event to be triggered if player land on starting
             case 2: 
@@ -89,8 +96,26 @@ struct Cell{
 	            }
             case 4:
 	        // event to be triggered if player land on jail
+		if(player.in_jail){
+			cout << "Now you are released, you can move next turn!" << endl;//if could use in_jail to skip the actionbeforeroll and call triggerevent
+			player.in_jail = false;
+		}
+		else{
+			cout << "You arrive on jail. Nothing happens." << endl;//move to the jail with rolling dice
+		}
+		break;
             case 5:
 	        // event to be triggered if player land on go to jail
+		cout << "You have encountered legal cases, now it's time to go to the jail." << endl;
+		if(player.has_card){
+			cout << "You have got " << player.has_card << " jail card(s)." << endl;//has card can choose to use or not
+		}
+		else{
+			cout << "You are in jail now, rest for one turn." << endl;//no card just arrested
+			player.pos = &board[20];//send to jail
+			player.in_jail = true;
+		}
+		break;
         }
     }
 };
