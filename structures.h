@@ -61,6 +61,18 @@ struct Cell{
 	        // event to be triggered if player land on starting
             case 2: 
 	        // event to be triggered if player land on punishment
+		int tax;
+		//if income_tax
+		if(player.pos -> name == "Income_Tax"){
+			int income_tax = 20;
+			tax = income_tax;
+		}
+		//if luxury_tax
+		else if(player.pos -> name == "Luxury_Tax"){
+			int luxury_tax = 25;
+			tax = luxury_tax;
+		}	
+		cout << "You need to pay " << tax << " for the " << player.pos -> name << end;
             case 3: 
 	        // event to be triggered if player land on chance
 	        srand(time(NULL));
