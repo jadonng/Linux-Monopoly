@@ -5,9 +5,10 @@
 #include <sstream>
 #include "printBoard.h"
 #include "action.h"
-#include "wincheck.h"
 #include "checkstatus.h"
 #include "structures.h"
+#include "wincheck.h"
+
 using namespace std;
 
 void roll_dice(int &dice);
@@ -47,10 +48,12 @@ int main() {
 
     // Can consider allow user to input how many players are there
     // Load players
+
+    //char number, string name, Cell *pos, int money, vector<int> land_list, int num_card, bool in_jail = false, bool can_buy_land_or_properties
     int num_player = 2;
     vector<int> vec1, vec2;
-    Player p1 = { 0, p1_name, &Board[0], initial_cash, vec1};
-    Player p2 = { 1, p2_name, &Board[0], initial_cash, vec2};
+    Player p1 = { 0, p1_name, &Board[0], initial_cash, vec1, 0, false, false};
+    Player p2 = { 1, p2_name, &Board[0], initial_cash, vec2, 0, false, false};
     Player player_array[] = { p1, p2 };
 
     //printboard()
@@ -64,7 +67,16 @@ int main() {
             // Player B turn
             cur_player = p2;
         }
+
+        // if current player is in jail, skip his round and change in_jail to false so he can move next round
+        if (cur_player.in_jail == true) {
+            cout << "Player " << cur_player.name << " is currently in jail, round skipped." << endl;
+            cur_player.in_jail = false;
+            continue;
+        }
+
         cout << "Player " << cur_player.name << "'s turn!" << endl;
+
         // Player first action
         int dice;
         actionBeforeRoll(cur_player, Board, dice);
@@ -79,10 +91,14 @@ int main() {
             cout << cur_player.name << " passed starting point, recieved $200." << endl;
         }
         
-        cur_player.pos->TriggerEvent(cur_player, Board);
+        // Triggerevent in structures.h
+        cur_player.pos->TriggerEvent(cur_player, Board, player_array);
 
+
+        // After correspinding events are triggered, allow user to pick their actions
         actionAfterRoll(cur_player, Board, cur_player.pos->type);
 
+        // Check if anyone is broke or satistfy winning conditions
         wincheck(p1, p2);
 
     }
@@ -120,67 +136,78 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice) {
 
 // Player second round of action
 void actionAfterRoll(Player cur_player, Cell Board[], int type) {
+
+    if (type == 0 && cur_player.can_buy_land_or_properties == false) {
+        actionAfterRoll(cur_player, Board, 10); // simply end round
+    }
+
     string choice;
+
     cout << "Press the respective hotkey to choose your next action." << endl;
     // Land
     if (type == 0) {
-        cout << "1: Buy land" << endl;
-        cout << "2: Build property" << endl;
-        cout << "3: Check game status" << endl;
-        cout << "4: End Round" << endl;
-        getline(cin, choice);
-        while (choice != "1" || choice != "2" || choice != "3" || choice != "4") {
-            cout << "Invalid choice, please choose again." << endl;
-            actionAfterRoll(cur_player, Board, type);
+        // Land on land that no one owns
+        if (cur_player.pos->owner == "Bank") {
+            cout << "1: Buy land" << endl;
+            cout << "2: Build property" << endl;
+            cout << "3: Check game status" << endl;
+            cout << "4: End Round" << endl;
+            getline(cin, choice);
+            while (choice != "1" || choice != "2" || choice != "3" || choice != "4") {
+                cout << "Invalid choice, please choose again." << endl;
+                actionAfterRoll(cur_player, Board, type);
+            }
+            // Handle user valid choice
+            switch (stoi(choice)) {
+                case 1: 
+                    buy(Board, cur_player);
+                    actionAfterRoll(cur_player, Board, type);
+                case 2:   
+                    buildproperty();
+                    actionAfterRoll(cur_player, Board, type);
+                case 3:
+                    checkstatus(cur_player, Board);
+                    actionAfterRoll(cur_player, Board, type);
+                case 4:
+                    cout << cur_player.name << "'s round ended." << endl;
+                    break;
+            }
         }
-        // Handle user valid choice
-        switch (stoi(choice)) {
-            case 1: 
-                buy(Board, cur_player);
+        // Land on own land
+        else if (cur_player.pos->owner == cur_player.name) {
+            cout << "1: Build property" << endl;
+            cout << "2: Check game status" << endl;
+            cout << "3: End Round" << endl;
+            getline(cin, choice);
+            while (choice != "1" || choice != "2" || choice != "3" || choice != "4") {
+                cout << "Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
-            case 2:   
-                buildproperty();
-                actionAfterRoll(cur_player, Board, type);
-            case 3:
-                checkstatus(cur_player, Board);
-                actionAfterRoll(cur_player, Board, type);
-            case 4:
-                cout << cur_player.name << "'s round ended." << endl;
-                break;
+            }
+            // Handle user valid choice
+            switch (stoi(choice)) {
+                case 1: 
+                    buy(Board, cur_player);
+                    actionAfterRoll(cur_player, Board, type);
+                case 2:   
+                    buildproperty();
+                    actionAfterRoll(cur_player, Board, type);
+                case 3:
+                    checkstatus(cur_player, Board);
+                    actionAfterRoll(cur_player, Board, type);
+                case 4:
+                    cout << cur_player.name << "'s round ended." << endl;
+                    break;
+            }
         }
+        
+        // Turn the bool off
+        cur_player.can_buy_land_or_properties = false;
+        
     }
     // To jail
     else if (type == 5) { 
         cout << "1: Use get out of jail card" << endl;
-        cout << "2: Check game status" << endl;
-        cout << "3: End Round" << endl;
-        getline(cin, choice);
-        while (choice != "1" || choice != "2" || choice != "3") {
-            cout << "Invalid choice, please choose again." << endl;
-            actionAfterRoll(cur_player, Board, type);
-        }
-        // Handle user valid choice
-        switch (stoi(choice)) {
-            case 1:
-                if (cur_player.has_card) {
-                    cout << "You have used one get out of jail card." << endl;
-                }
-                else {
-                    cout << "You do not own any jail card." << endl;
-                }
-                actionAfterRoll(cur_player, Board, 10); //so do not reloop back to 'to jail' choices
-            case 2:
-                checkstatus(cur_player, Board);
-                actionAfterRoll(cur_player, Board, type);
-            case 3:
-                cout << cur_player.name << "'s round ended." << endl;
-                break;
-        }   
-    }
-    // Chance, Punishment and Jail <- these will be handled by TriggerEvent()
-    else {
-        cout << "1: Check game status" << endl;
-        cout << "2: End Round" << endl;
+        cout << "2: Go to jail" << endl;
         getline(cin, choice);
         while (choice != "1" || choice != "2") {
             cout << "Invalid choice, please choose again." << endl;
@@ -189,13 +216,38 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
         // Handle user valid choice
         switch (stoi(choice)) {
             case 1:
-                checkstatus(cur_player, Board);
-                actionAfterRoll(cur_player, Board, type);
-                
+                cout << "You have used one get out of jail card." << endl;
+                cur_player.num_card -= 1;
+                break;
             case 2:
-                cout << cur_player.name << "'s round ended." << endl;
+                cout << "You are in jail now, rest for one turn." << endl;
+                cur_player.pos = &Board[20];
                 break;
         }   
+    }
+    // Chance, Punishment and Jail <- these will be handled by TriggerEvent()
+    else {
+        // if they are in jail already, skip action 2
+        if (cur_player.in_jail == false) {
+            cout << "1: Check game status" << endl;
+            cout << "2: End Round" << endl;
+            getline(cin, choice);
+            while (choice != "1" || choice != "2") {
+                cout << "Invalid choice, please choose again." << endl;
+                actionAfterRoll(cur_player, Board, type);
+            }
+            // Handle user valid choice
+            switch (stoi(choice)) {
+                case 1:
+                    checkstatus(cur_player, Board);
+                    actionAfterRoll(cur_player, Board, type);
+                    
+                case 2:
+                    cout << cur_player.name << "'s round ended." << endl;
+                    break;
+            }   
+        }
+        
     }
     
 }
