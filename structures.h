@@ -94,12 +94,8 @@ struct Cell{
 			        break;
 		        case 5: // Release From Jail
 			        cout << "Chance: Release From Jail" << endl;
-			        cout << "Move out of jail" << endl;
-			        if (player.pos->type == 4) {
-				        player.pos++;
-			        } else {
-				        cout << "You are currently not in jail. No action is done." << endl;
-			        }
+			        cout << "You get a jail card to have a chance to be released from the jail!" << endl;
+			        player.has_card++;
 			        break;
       		          case 6: // advance to MTR Exit B
 	                	cout << "Chance: Advance to MTR Exit B" << endl;
