@@ -32,7 +32,7 @@ struct Cell{
     int price;      // -1 if not Land
     int rent;       // -1 if not land
     string owner;   // Normalized to Bank Owned
-    void TriggerEvent(Player &player, Cell board[]) {
+    void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
         switch (type) {
 	        case 0:
             // event to be triggered if player land on land
@@ -51,7 +51,10 @@ struct Cell{
 			cout << "You have arrived " << player.pos -> name << " which is owned by " << player.pos -> owner << " with the rent of " << player.pos -> rent <<endl;
 			player.can_buy_land_or_properties = false;
 			cout << "You have to pay " << player.pos -> rent << " to " << player.pos -> name << endl;
-			//payrent(board, player, owner)
+			for(Player &p : player_array){
+				if(p.name == player.pos -> owner){
+					payrent(board, player, p)
+				}
 		}
 		break;
             case 1: 
