@@ -19,7 +19,8 @@ struct Player{
 	string name;
 	Cell *pos;
 	int money;
-	int has_card;           //number of card the player got
+	vector<int> land_list;
+	int num_card;           //number of card the player got
 	bool in_jail = false;   //if the player is in jail now
 };
 
@@ -116,8 +117,8 @@ struct Cell{
 	        // event to be triggered if player land on go to jail
 		cout << "You have encountered legal cases, now it's time to go to the jail." << endl;
 		//if has card could choose to use or not
-		if(player.has_card){
-			cout << "You have got " << player.has_card << " jail card(s)." << endl;
+		if(player.num_card){
+			cout << "You have got " << player.num_card << " jail card(s)." << endl;
 		}
 		//if no card, just arrested
 		else{
