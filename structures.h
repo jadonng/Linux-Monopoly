@@ -59,6 +59,7 @@ struct Cell{
 		break;
             case 1: 
 	        // event to be triggered if player land on starting
+		cout << "You have arrived the starting point; welcome back!" << endl;
             case 2: 
 	        // event to be triggered if player land on punishment
 		int tax;
