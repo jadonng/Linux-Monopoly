@@ -22,6 +22,7 @@ struct Player{
 	vector<int> land_list;
 	int num_card;           //number of card the player got
 	bool in_jail = false;   //if the player is in jail now
+	bool can_buy_land_or_properties;
 };
 
 struct Cell{
@@ -38,14 +39,19 @@ struct Cell{
 		//if the land is owned by player
 		if(player.pos -> owner == player.name){
 			cout << "You have arrived " << player.pos -> name << " which is owned by you with the rent of " << player.pos -> rent <<endl;
+			player.can_buy_land_or_properties = true;
 		}
 		//if the land is owned by bank
 		else if(player.pos -> owner == "bank"){
 			cout << "You have arrived " << player.pos -> name << " which has no owner with the price of " << player.pos -> price << endl; 
+			player.can_buy_land_or_properties = true;
 		}
 		//if the land is owned by other player
 		else{
 			cout << "You have arrived " << player.pos -> name << " which is owned by " << player.pos -> owner << " with the rent of " << player.pos -> rent <<endl;
+			player.can_buy_land_or_properties = false;
+			cout << "You have to pay " << player.pos -> rent << " to " << player.pos -> name << endl;
+			//payrent(board, player, owner)
 		}
 		break;
             case 1: 
