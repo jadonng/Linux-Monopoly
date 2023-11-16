@@ -54,7 +54,7 @@ struct Cell{
 			for(Player &p : player_array){
 				if(p.name == player.pos -> owner){
 					payrent(board, player, p)
-				}
+			}
 		}
 		break;
             case 1: 
