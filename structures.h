@@ -73,6 +73,7 @@ struct Cell{
 			tax = luxury_tax;
 		}	
 		cout << "You need to pay " << tax << " for the " << player.pos -> name << end;
+		player.money -= tax;
             case 3: 
 	        // event to be triggered if player land on chance
 	        srand(time(NULL));
