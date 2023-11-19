@@ -1,6 +1,7 @@
 FLAGS = -pedantic-errors -std=c++11
 
 structures.o: structures.cpp structures.h
+	g++ $(FLAGS) -c $<
 
 board.o: board.cpp board.h structures.h
 	g++ $(FLAGS) -c $<
