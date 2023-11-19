@@ -108,13 +108,13 @@ int main() {
 
         // Check if anyone is broke or satistfy winning conditions
         int broke_count = 0;
-        for (int i = 0, i < num_player, i++) {
+        for (int i = 0; i < num_player; i++) {
             if (player_array[i].money < 0) {
                 broke_count++;
             }
         }
         if (broke_count == num_player - 1) {
-            for (int i = 0, i < num_player, i++) {
+            for (int i = 0; i < num_player; i++) {
                 if (player_array[i].money > 0) {
                     cout << "Everyone else is broke, " << player_array[i].name << " has won!" << endl;
                     game_end = true;
