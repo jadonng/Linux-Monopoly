@@ -15,8 +15,9 @@ bool wincheck(Player *arr, int num_of_player){
     
     for(int i = 0; i < num_of_player; i++){
         if(arr[i].money >= money_to_win){
-        cout<<"Player " << arr[i].name << " wins!"<<endl;
-        return true;
+            cout<<"Player " << arr[i].name << " wins!"<<endl;
+            return true;
+        }
     }
     return false;
 }
