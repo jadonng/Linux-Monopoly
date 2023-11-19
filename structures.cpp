@@ -60,39 +60,39 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 	        int chance_no = rand()%6+1;
 	        switch (chance_no) {
 		        case 0: // advance_to_go
-			        cout << "Chance: Advance to Go" << endl;
-			        cout << "Move to Go and collect $200" << endl;
+			        cout << ">> Chance: Advance to Go" << endl;
+			        cout << ">> Move to Go and collect $200" << endl;
 			        player.pos = board;
 			        player.money += 200;
 			        break;
 		        case 1: // bank dividend
-			        cout << "Chance: Bank Dividend" << endl;
-			        cout << "Collect $50 as bank dividend" << endl;
+			        cout << ">> Chance: Bank Dividend" << endl;
+			        cout << ">> Collect $50 as bank dividend" << endl;
 			        player.money += 50;
 			        break;
 		        case 2: // go back 3 spaces
-			        cout << "Chance: Go Back 3 Spaces" << endl;
-			        cout << "Move backward by 3 cells" << endl;
+			        cout << ">> Chance: Go Back 3 Spaces" << endl;
+			        cout << ">> Move backward by 3 cells" << endl;
 			        player.pos -= 3;
 			        break;
 		        case 3: // tax
-			        cout << "Chance: Tax" << endl;
-			        cout << "Pay $15 as tax" << endl;
+			        cout << ">> Chance: Tax" << endl;
+			        cout << ">> Pay $15 as tax" << endl;
 			        player.money -= 15;
 			        break;
 		        case 4: // loan matures
-			        cout << "Chance: Loan Matures" << endl;
-			        cout << "Your bank loan matures, and collect $150" << endl;
+			        cout << ">> Chance: Loan Matures" << endl;
+			        cout << ">> Your bank loan matures, and collect $150" << endl;
 			        player.money += 150;
 			        break;
 		        case 5: // Release From Jail
-			        cout << "Chance: Release From Jail" << endl;
-			        cout << "You get a jail card to have a chance to be released from the jail!" << endl;
+			        cout << ">> Chance: Release From Jail" << endl;
+			        cout << ">> You get a jail card to have a chance to be released from the jail!" << endl;
 			        player.num_card++;
 			        break;
       		          case 6: // advance to MTR Exit B
-	                	cout << "Chance: Advance to MTR Exit B" << endl;
-	        	        cout << "Move to MTR Exit B, collect $200 if pass through GO" << endl;
+	                	cout << ">> Chance: Advance to MTR Exit B" << endl;
+	        	        cout << ">> Move to MTR Exit B, collect $200 if pass through GO" << endl;
                     		if (player.pos > &board[26]) { // pass through GO
                         		player.money += 200;
                     		}
