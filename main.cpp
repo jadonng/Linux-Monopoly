@@ -13,7 +13,7 @@
 using namespace std;
 
 void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2);
-void actionAfterRoll(Player cur_player, Cell Board[], int type);
+void actionAfterRoll(Player &cur_player, Cell Board[], int type);
 
 int main() {
     // Variables
@@ -59,6 +59,8 @@ int main() {
         vector<int> * land_vec = new vector<int>;
         Player * new_player = new Player { i, name, &Board[0], initial_cash, *land_vec, 0, false, false};
         player_array[i] = *new_player;
+        delete land_vec;
+        delete new_player;
     }
     cout << "\n";
 
@@ -125,17 +127,19 @@ int main() {
         if (game_end) {
             break;
         }
+
+        player_array[cur_round%num_player] = cur_player;
         
     }
     outloop_wincheck(player_array, num_player);
-    // Delete memory 
-    for (int i = 0; i < num_player; i++) {
-        delete &(player_array[i].land_list);
-        delete &(player_array[i]);
-    }
+    // Delete array memory 
     delete [] player_array;
 
 }
+
+
+
+// Functions
 
 // Player first round of action - basically allow player to roll dice
 void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
@@ -147,7 +151,7 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
 
     while (!(choice == "1" || choice == "2")) {
         cout << ">> Invalid choice, please choose again." << endl;
-        actionBeforeRoll(cur_player, Board, dice1, dice2);
+        return actionBeforeRoll(cur_player, Board, dice1, dice2);
     }
 
     switch (stoi(choice)) {
@@ -160,49 +164,44 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
 
         case 2: // Check Status
             checkstatus(cur_player,Board);
-            actionBeforeRoll(cur_player, Board, dice1, dice2);
+            return actionBeforeRoll(cur_player, Board, dice1, dice2);
             break;
     }   
 }
 
 // Player second round of action - the function will perform different things based on the type of cell player landed on
-void actionAfterRoll(Player cur_player, Cell Board[], int type) {
+void actionAfterRoll(Player &cur_player, Cell Board[], int type) {
 
     if (type == 0 && cur_player.can_buy_land_or_properties == false) {
-        actionAfterRoll(cur_player, Board, 10); // simply end round
+        return actionAfterRoll(cur_player, Board, 10); // simply end round
     }
 
     string choice;
 
-    cout << "Press the respective hotkey to choose your next action." << endl;
+    cout << "\nPress the respective hotkey to choose your next action." << endl;
     // Land
     if (type == 0) {
         // Land on land that no one owns
         if (cur_player.pos->owner == "Bank") {
             cout << "1: Buy land" << endl;
-            cout << "2: Build property" << endl;
-            cout << "3: Check game status" << endl;
-            cout << "4: End Round" << endl;
+            cout << "2: Check game status" << endl;
+            cout << "3: End Round" << endl;
             getline(cin, choice);
-            while (!(choice == "1" || choice == "2" || choice == "3" || choice == "4")) {
+            while (!(choice == "1" || choice == "2" || choice == "3")) {
                 cout << ">> Invalid choice, please choose again." << endl;
-                actionAfterRoll(cur_player, Board, type);
+                return actionAfterRoll(cur_player, Board, type);
             }
             // Handle user valid choice
             switch (stoi(choice)) {
                 case 1: 
                     buy(Board, cur_player);
-                    actionAfterRoll(cur_player, Board, type);
+                    return actionAfterRoll(cur_player, Board, type);
                     break;
                 case 2:
-                    buildproperty(Board, cur_player);
-                    actionAfterRoll(cur_player, Board, type);
+                    checkstatus(cur_player, Board);
+                    return actionAfterRoll(cur_player, Board, type);
                     break;
                 case 3:
-                    checkstatus(cur_player, Board);
-                    actionAfterRoll(cur_player, Board, type);
-                    break;
-                case 4:
                     cout << ">> " << cur_player.name << "'s round ended." << endl;
                     break;
             }
@@ -213,19 +212,19 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "2: Check game status" << endl;
             cout << "3: End Round" << endl;
             getline(cin, choice);
-            while (!(choice == "1" || choice == "2" || choice == "3" || choice == "4")) {
+            while (!(choice == "1" || choice == "2" || choice == "3")) {
                 cout << ">> Invalid choice, please choose again." << endl;
-                actionAfterRoll(cur_player, Board, type);
+                return actionAfterRoll(cur_player, Board, type);
             }
             // Handle user valid choice
             switch (stoi(choice)) {
                 case 1:   
                     buildproperty(Board,cur_player);
-                    actionAfterRoll(cur_player, Board, type);
+                    return actionAfterRoll(cur_player, Board, type);
                     break;
                 case 2:
                     checkstatus(cur_player, Board);
-                    actionAfterRoll(cur_player, Board, type);
+                    return actionAfterRoll(cur_player, Board, type);
                     break;
                 case 3:
                     cout << ">> " << cur_player.name << "'s round ended." << endl;
@@ -244,7 +243,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
         getline(cin, choice);
         while (!(choice == "1" || choice == "2")) {
             cout << ">> Invalid choice, please choose again." << endl;
-            actionAfterRoll(cur_player, Board, type);
+            return actionAfterRoll(cur_player, Board, type);
         }
         // Handle user valid choice
         switch (stoi(choice)) {
@@ -267,13 +266,13 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             getline(cin, choice);
             while (!(choice == "1" || choice == "2")) {
                 cout << ">> Invalid choice, please choose again." << endl;
-                actionAfterRoll(cur_player, Board, type);
+                return actionAfterRoll(cur_player, Board, type);
             }
             // Handle user valid choice
             switch (stoi(choice)) {
                 case 1:
                     checkstatus(cur_player, Board);
-                    actionAfterRoll(cur_player, Board, type);
+                    return actionAfterRoll(cur_player, Board, type);
                     break;
                     
                 case 2:
