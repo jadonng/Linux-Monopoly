@@ -4,7 +4,8 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-// #include "printBoard.h"
+#include "printBoard.h"
+#include "board.h"
 #include "checkstatus.h"
 #include "wincheck.h"
 #include "structures.h"
@@ -64,6 +65,7 @@ int main() {
     // Main Loop
     for (cur_round = 0; cur_round < rounds * num_player; cur_round++) {
 
+
         printboard(Board);
 
         // Lock in current player
@@ -73,6 +75,11 @@ int main() {
         if (cur_player.in_jail == true) {
             cout << "Player " << cur_player.name << " is currently in jail, round skipped." << endl;
             cur_player.in_jail = false;
+            continue;
+        }
+        // skip player round if they are broke
+        if (brokecheck(cur_player)) {
+            cout << "Player " << cur_player.name << " is already broke." << endl;
             continue;
         }
 
@@ -167,8 +174,8 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                 case 1: 
                     buy(Board, cur_player);
                     actionAfterRoll(cur_player, Board, type);
-                case 2:   
-                    buildproperty();
+                case 2:
+                    buildproperty(cur_player.pos);
                     actionAfterRoll(cur_player, Board, type);
                 case 3:
                     checkstatus(cur_player, Board);

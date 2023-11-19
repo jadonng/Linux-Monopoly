@@ -1,16 +1,12 @@
-// structures.h
-#ifndef STRUCT_H
-#define STRUCT_H
+//player.h
 
-#include <iostream>
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <string>
 #include <vector>
-#include <cstdlib>
-#include <ctime>
-
+#include "structures.h"
 using namespace std;
-struct Player;
-struct Cell;
 
 struct Player{
   /* Explanation:
@@ -29,18 +25,5 @@ struct Player{
 	bool in_jail = false;   //if the player is in jail now
 	bool can_buy_land_or_properties;
 };
-
-struct Cell{
-    int ID;         //Location(0-39)
-    int type;       //(0 = Land, 1 = Starting Point, 2 = Punishment, 3 = Chance, 4 = Jail, 5 = Go to Jail, 6 = NULL)
-    string name; 
-    int price;      // -1 if not Land
-    int rent;       // -1 if not land
-	int property;
-    string owner;   // Normalized to Bank Owned
-    void TriggerEvent(Player &player, Cell board[], Player player_array[]);
-};
-
-void loadBoard(Cell Board[40]);
 
 #endif
