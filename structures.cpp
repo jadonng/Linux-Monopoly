@@ -5,7 +5,7 @@
 using namespace std;
 
 void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
-        switch (type) {
+        switch (player.pos -> type) {
 	case 0:
             	// event to be triggered if player land on land
 		//if the land is owned by player
