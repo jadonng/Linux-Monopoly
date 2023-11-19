@@ -3,12 +3,12 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "printBoard.h"
-#include "action.h"
+#include <vector>
+// #include "printBoard.h"
 #include "checkstatus.h"
-#include "structures.h"
 #include "wincheck.h"
-
+#include "structures.h"
+#include "action.h"
 using namespace std;
 
 void roll_dice(int &dice);
@@ -20,10 +20,9 @@ int main() {
     // Variables
     int cur_round;
     Player cur_player;
-
+    int num_player;
     int rounds;
     double initial_cash;
-    string p1_name, p2_name;
     const int startpoint_cash = 200;
 
     // Load Board
@@ -37,36 +36,38 @@ int main() {
     cout << "*************************************" << endl;
     cout << "\nPlease fill in the following configurations to start the game." << endl;
     // add some defensive programming later
-    cout << "\nNumber of rounds (must be an integer >= 20): ";
+    cout << "\nNumber of rounds for each player(must be an integer): ";
     cin >> rounds;
     cout << "\nInitial Cash (must be positive): ";
     cin >> initial_cash;
-    cout << "\nFirst player's name: (between 2-20 characters): ";
-    getline(cin, p1_name);
-    cout << "\nSecond player's name: (between 2-20 characters): ";
-    getline(cin, p2_name);
+    cout << "\nNumber of Players (2-4): ";
+    cin >> num_player;
+    
 
-    // Can consider allow user to input how many players are there
     // Load players
 
     //char number, string name, Cell *pos, int money, vector<int> land_list, int num_card, bool in_jail = false, bool can_buy_land_or_properties
-    int num_player = 2;
-    vector<int> vec1, vec2;
-    Player p1 = { 0, p1_name, &Board[0], initial_cash, vec1, 0, false, false};
-    Player p2 = { 1, p2_name, &Board[0], initial_cash, vec2, 0, false, false};
-    Player player_array[] = { p1, p2 };
+    // Dynamic Memory Management
+    Player * player_array = new Player [num_player];
+    for (int i = 0; i < num_player; i++) {
+        // ask user to enter their names
+        string name;
+        cout << "\nPlayer " << i << " name: (between 2-20 characters): ";
+        getline(cin, name);
 
-    //printboard()
-    
-    for (cur_round = 0; cur_round < rounds; cur_round++) {
-        if (cur_round % 2 == 0) {
-            // Player A turn
-            cur_player = p1;
-        }
-        else {
-            // Player B turn
-            cur_player = p2;
-        }
+        vector<int> * land_vec = new vector<int>;
+        Player * new_player = new Player { i, name, &Board[0], initial_cash, *land_vec, 0, false, false};
+        player_array[i] = *new_player;
+    }
+    cout << "\n";
+
+    // Main Loop
+    for (cur_round = 0; cur_round < rounds * num_player; cur_round++) {
+
+        printboard(Board);
+
+        // Lock in current player
+        cur_player = player_array[cur_round%num_player];
 
         // if current player is in jail, skip his round and change in_jail to false so he can move next round
         if (cur_player.in_jail == true) {
@@ -94,20 +95,24 @@ int main() {
         // Triggerevent in structures.h
         cur_player.pos->TriggerEvent(cur_player, Board, player_array);
 
-
         // After correspinding events are triggered, allow user to pick their actions
         actionAfterRoll(cur_player, Board, cur_player.pos->type);
 
         // Check if anyone is broke or satistfy winning conditions
-        wincheck(p1, p2);
+        wincheck(player_array);
 
     }
 
+    // Delete memory 
+    for (int i = 0; i < num_player; i++) {
+        delete &(player_array[i].land_list);
+        delete &(player_array[i]);
+    }
+    delete [] player_array;
 
-    
 }
 
-// Player first round of action
+// Player first round of action - basically allow player to roll dice
 void actionBeforeRoll(Player cur_player, Cell Board[], int &dice) {
     string choice;
     cout << "Press the respective hotkey to choose your next action." << endl;
@@ -134,7 +139,7 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice) {
     }   
 }
 
-// Player second round of action
+// Player second round of action - the function will perform different things based on the type of cell player landed on
 void actionAfterRoll(Player cur_player, Cell Board[], int type) {
 
     if (type == 0 && cur_player.can_buy_land_or_properties == false) {
@@ -185,16 +190,13 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             }
             // Handle user valid choice
             switch (stoi(choice)) {
-                case 1: 
-                    buy(Board, cur_player);
-                    actionAfterRoll(cur_player, Board, type);
-                case 2:   
+                case 1:   
                     buildproperty();
                     actionAfterRoll(cur_player, Board, type);
-                case 3:
+                case 2:
                     checkstatus(cur_player, Board);
                     actionAfterRoll(cur_player, Board, type);
-                case 4:
+                case 3:
                     cout << cur_player.name << "'s round ended." << endl;
                     break;
             }
@@ -249,5 +251,4 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
         }
         
     }
-    
 }
