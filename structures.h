@@ -40,6 +40,6 @@ struct Cell{
     string owner;   // Normalized to Bank Owned
 };
 
-void TriggerEvent(Player &player, Cell board[], Player player_array[]);
+void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_of_player);
 
 #endif
