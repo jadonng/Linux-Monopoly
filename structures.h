@@ -123,6 +123,7 @@ struct Cell{
                     		player.pos = &board[26];
                     		break;
 	            }
+		    break;
             case 4:
 	        // event to be triggered if player land on jail
 		//if the player was sent to jail last time and skipped a rolling dice
