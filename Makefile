@@ -21,7 +21,7 @@ printBoard.o: printBoard.cpp printBoard.h
 main.o: main.cpp printBoard.h checkstatus.h wincheck.h structures.h action.h
 	g++ $(FLAGS) -c $<
 
-main: structures.o action.o checkstatus.o wincheck.o printBoard.o main.o
+main: structures.o board.o action.o checkstatus.o wincheck.o printBoard.o main.o
 	g++ $(FLAGS) $^ -o $@
 
 clean:
