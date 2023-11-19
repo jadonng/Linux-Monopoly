@@ -3,7 +3,7 @@ using namespace std;
 
 void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
         switch (type) {
-	        case 0:
+	case 0:
             	// event to be triggered if player land on land
 		//if the land is owned by player
 		if(player.pos -> owner == player.name){
@@ -27,10 +27,10 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
 			}
 		}
 		break;
-            case 1: 
+        case 1: 
 	        // event to be triggered if player land on starting
 		cout << "You have arrived the starting point; welcome back!" << endl;
-            case 2: 
+        case 2: 
 	        // event to be triggered if player land on punishment
 		int tax;
 		//if income_tax
@@ -47,7 +47,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
 		player.money -= tax;
 
 
-           case 4:
+        case 4:
           	        // event to be triggered if player land on jail
           		//if the player was sent to jail last time and skipped a rolling dice
           		if(player.in_jail){
@@ -59,7 +59,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
           			cout << "You arrive on jail. Nothing happens." << endl;
           		}
           		break;
-                      case 5:
+        case 5:
           	        // event to be triggered if player land on go to jail
           		cout << "You have encountered legal cases, now it's time to go to the jail." << endl;
           		//if has card could choose to use or not
