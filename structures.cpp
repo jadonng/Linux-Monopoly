@@ -17,7 +17,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 			player.can_buy_land_or_properties = true;
 		}
 		//if the land is owned by bank
-		else if(player.pos -> owner == "bank"){
+		else if(player.pos -> owner == "Bank"){
 			cout << "You have arrived " << player.pos -> name << " which has no owner with the price of " << player.pos -> price << endl; 
 			player.can_buy_land_or_properties = true;
 		}
