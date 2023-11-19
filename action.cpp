@@ -32,7 +32,7 @@ void payrent(Cell Board[], Player &playerstep, Player &playerown){
     int position = playerstep.pos->ID;
     playerstep.money -= Board[position].rent * pow(2,Board[position].property);
     playerown.money += Board[position].rent* pow(2,Board[position].property);
-    cout << ">> You have pay " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.number << endl;
+    cout << ">> You have pay " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.name << endl;
     cout << ">> Your remaining balance is " << playerstep.money << endl;
 }
 
