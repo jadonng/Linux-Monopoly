@@ -66,7 +66,7 @@ int main() {
     for (cur_round = 0; cur_round < rounds * num_player; cur_round++) {
 
 
-        printBoard(Board);
+        // printBoard(Board);
 
         // Lock in current player
         cur_player = player_array[cur_round%num_player];
