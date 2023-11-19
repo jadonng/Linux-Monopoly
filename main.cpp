@@ -53,6 +53,7 @@ int main() {
         // ask user to enter their names
         string name;
         cout << "\nPlayer " << i << " name: (between 2-20 characters): ";
+        cin.ignore();
         getline(cin, name);
 
         vector<int> * land_vec = new vector<int>;
