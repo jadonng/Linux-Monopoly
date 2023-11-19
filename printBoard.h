@@ -1,22 +1,10 @@
-//printBoard.h
+// printBoard.h
+#ifndef PRINTBOARD_H
+#define PRINTBOARD_H
 
-#include <vector>
-#include <string>
+#include "structures.h"
 
-using namespace std;
+void loadBoard(Cell Board[40]);
+void printBoard(Cell Board[], int size);
 
-struct Cell {
-    string name;
-    int price;
-};
-
-class Board {
-public:
-    vector<Cell> cells;
-
-    // Constructor
-    Board(vector<Cell> cells) : cells(cells) {}
-
-    // Method to print the board
-    void printBoard();
-};
+#endif
