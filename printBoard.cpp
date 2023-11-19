@@ -2,34 +2,9 @@
 #include <iostream>
 #include "structures.h"
 #include "printBoard.h"
+#include "board.h"
 
 using namespace std;
-
-void loadBoard(Cell Board[40]) {
-    // Initialize each cell in the board
-    for (int i = 0; i < 40; i++) {
-        Board[i].ID = i;
-        Board[i].name = "Cell " + to_string(i);
-        Board[i].price = -1;
-        Board[i].rent = -1;
-        Board[i].owner = "Bank";
-
-        // Set the type of each cell
-        if (i == 0) {
-            Board[i].type = 1;  // Starting Point
-        } else if (i == 10 || i == 30) {
-            Board[i].type = 4;  // Jail/Go to Jail
-        } else if (i % 5 == 0) {
-            Board[i].type = 2;  // Punishment
-        } else if (i % 3 == 0) {
-            Board[i].type = 3;  // Chance
-        } else {
-            Board[i].type = 0;  // Land
-            Board[i].price = i * 10;  // Set a random price for the land
-            Board[i].rent = i;  // Set a random rent for the land
-        }
-    }
-}
 
 void printBoard(Cell Board[], int size) {
     int side = sqrt(size);
@@ -79,11 +54,4 @@ void printBoard(Cell Board[], int size) {
         cout << "+-----";
     }
     cout << "+" << endl;
-}
-
-int main() {
-    Cell Board[40];
-    loadBoard(Board);
-    printBoard(Board, 40);
-    return 0;
 }
