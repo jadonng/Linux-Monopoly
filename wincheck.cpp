@@ -9,13 +9,13 @@ using namespace std;
 //if one of them wins, return true,
 //else return false
 
-bool wincheck(Player arr[]){
+bool wincheck(Player *arr, int num_of_player){
     const int money_to_win=1000;
     bool if_game_ends = false;
     
-    for(Player p : arr){
-        if(p.money >= money_to_win){
-        cout<<"Player " << p.name << " wins!"<<endl;
+    for(int i = 0; i < num_of_player; i++){
+        if(arr[i].money >= money_to_win){
+        cout<<"Player " << arr[i].name << " wins!"<<endl;
         return true;
     }
     return false;
