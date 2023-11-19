@@ -1,6 +1,7 @@
 // printBoard.cpp
 #include <iostream>
 #include "structures.h"
+#include "printBoard.h"
 
 using namespace std;
 
