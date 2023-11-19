@@ -12,7 +12,7 @@
 #include "action.h"
 using namespace std;
 
-void actionBeforeRoll(Player cur_player, Cell Board[], int &dice);
+void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2);
 void actionAfterRoll(Player cur_player, Cell Board[], int type);
 
 int main() {
@@ -85,8 +85,8 @@ int main() {
         cout << "Player " << cur_player.name << "'s turn!" << endl;
 
         // Player first action
-        int dice;
-        actionBeforeRoll(cur_player, Board, dice);
+        int dice1, dice2;
+        actionBeforeRoll(cur_player, Board, &dice1, &dice2);
 
         // Move the player
         if (cur_player.pos->ID + dice < board_size) {
@@ -137,7 +137,7 @@ int main() {
 }
 
 // Player first round of action - basically allow player to roll dice
-void actionBeforeRoll(Player cur_player, Cell Board[], int &dice) {
+void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
     string choice;
     cout << "Press the respective hotkey to choose your next action." << endl;
     cout << "1: Roll dice" << endl;
@@ -146,14 +146,15 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice) {
 
     while (choice != "1" || choice != "2") {
         cout << "Invalid choice, please choose again." << endl;
-        actionBeforeRoll(cur_player, Board, dice);
+        actionBeforeRoll(cur_player, Board, &dice1, &dice2);
     }
 
     switch (stoi(choice)) {
         case 1: // Roll dice
             srand(time(NULL));
-            dice = rand() % 6 + 1;
-            cout << "You rolled " << dice << "!" << endl;
+            dice1 = rand() % 6 + 1;
+            dice2 = rand() % 6 + 1;
+            cout << "You rolled " << dice1 + dice2 << "!" << endl;
             break;
 
         case 2: // Check Status
