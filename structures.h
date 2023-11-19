@@ -36,7 +36,7 @@ struct Cell{
     string name; 
     int price;      // -1 if not Land
     int rent;       // -1 if not land
-	int property;
+    int property;
     string owner;   // Normalized to Bank Owned
 };
 
