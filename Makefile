@@ -1,8 +1,5 @@
 FLAGS = -pedantic-errors -std=c++11
 
-structures.o: strucutres.h
-	g++ $(FLAGS) -c $<
-
 board.o: board.cpp board.h structures.h
 	g++ $(FLAGS) -c $<
 
@@ -21,7 +18,7 @@ printBoard.o: printBoard.cpp printBoard.h
 main.o: main.cpp printBoard.h checkstatus.h wincheck.h structures.h action.h
 	g++ $(FLAGS) -c $<
 
-main: structures.o action.o checkstatus.o wincheck.o printBoard.o main.o
+main: structures.h action.o checkstatus.o wincheck.o printBoard.o main.o
 	g++ $(FLAGS) $^ -o $@
 
 clean:
