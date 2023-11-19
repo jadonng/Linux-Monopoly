@@ -12,8 +12,6 @@
 #include "action.h"
 using namespace std;
 
-void roll_dice(int &dice);
-
 void actionBeforeRoll(Player cur_player, Cell Board[], int &dice);
 void actionAfterRoll(Player cur_player, Cell Board[], int type);
 
