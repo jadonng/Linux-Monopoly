@@ -193,12 +193,15 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                 case 1: 
                     buy(Board, cur_player);
                     actionAfterRoll(cur_player, Board, type);
+                    break;
                 case 2:
                     buildproperty(Board, cur_player);
                     actionAfterRoll(cur_player, Board, type);
+                    break;
                 case 3:
                     checkstatus(cur_player, Board);
                     actionAfterRoll(cur_player, Board, type);
+                    break;
                 case 4:
                     cout << ">> " << cur_player.name << "'s round ended." << endl;
                     break;
@@ -219,9 +222,11 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                 case 1:   
                     buildproperty(Board,cur_player);
                     actionAfterRoll(cur_player, Board, type);
+                    break;
                 case 2:
                     checkstatus(cur_player, Board);
                     actionAfterRoll(cur_player, Board, type);
+                    break;
                 case 3:
                     cout << ">> " << cur_player.name << "'s round ended." << endl;
                     break;
@@ -269,6 +274,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                 case 1:
                     checkstatus(cur_player, Board);
                     actionAfterRoll(cur_player, Board, type);
+                    break;
                     
                 case 2:
                     cout << ">> " << cur_player.name << "'s round ended." << endl;
