@@ -27,7 +27,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 			player.can_buy_land_or_properties = false;
 			cout << "You have to pay " << player.pos -> rent << " to " << player.pos -> name << endl;
 			for(int i=0; i<num_of_player; i++){
-    				Player& p = player_array[I];
+    				Player& p = player_array[i];
     				if(p.name == player.pos->owner){
       					payrent(board, player, p);
       				}
