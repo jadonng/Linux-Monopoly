@@ -4,6 +4,4 @@
 
 #include "structures.h"
 
-void printBoard(Cell Board[], int size);
-
 #endif
