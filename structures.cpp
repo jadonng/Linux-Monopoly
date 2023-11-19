@@ -93,10 +93,10 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
       		          case 6: // advance to MTR Exit B
 	                	cout << ">> Chance: Advance to MTR Exit B" << endl;
 	        	        cout << ">> Move to MTR Exit B, collect $200 if pass through GO" << endl;
-                    		if (player.pos > &board[26]) { // pass through GO
+                    		if (player.pos > &board[25]) { // pass through GO
                         		player.money += 200;
                     		}
-                    		player.pos = &board[26];
+                    		player.pos = &board[25];
                     		break;
 	            }
 		    break;

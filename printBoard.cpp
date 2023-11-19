@@ -1,57 +1,46 @@
-// printBoard.cpp
 #include <iostream>
-#include "structures.h"
+#include <cmath>
 #include "printBoard.h"
 #include "board.h"
 
-using namespace std;
+const int BOARD_SIZE = 40;
 
-void printBoard(Cell Board[], int size) {
-    int side = sqrt(size);
+void printBoard(Cell Board[BOARD_SIZE]) {
+    int side = BOARD_SIZE / 4;
 
-    // Print top border
+    // Print top row
     for (int i = 0; i < side; i++) {
-        cout << "+-----";
-    }
-    cout << "+" << endl;
-
-    // Print cells from the top row
-    for (int i = 0; i < side; i++) {
-        cout << "| " << Board[i].name;
+        std::cout << "| " << Board[i].name;
         if (Board[i].type == 0) {  // If the cell is a Land
-            cout << " ($" << Board[i].price << ")";
+            std::cout << " ($" << Board[i].price << ")";
         }
     }
-    cout << "|" << endl;
+    std::cout << "|" << std::endl;
 
     // Print cells from the left and right columns
     for (int i = 1; i < side - 1; i++) {
-        cout << "| " << Board[size - i].name;
-        if (Board[size - i].type == 0) {  // If the cell is a Land
-            cout << " ($" << Board[size - i].price << ")";
+        std::cout << "| " << Board[BOARD_SIZE - i].name;
+        if (Board[BOARD_SIZE - i].type == 0) {  // If the cell is a Land
+            std::cout << " ($" << Board[BOARD_SIZE - i].price << ")";
         }
         for (int j = 0; j < side - 2; j++) {
-            cout << "|     ";
+            std::cout << "|     ";
         }
-        cout << "| " << Board[side + i].name;
+        std::cout << "| " << Board[side + i].name;
         if (Board[side + i].type == 0) {  // If the cell is a Land
-            cout << " ($" << Board[side + i].price << ")";
+            std::cout << " ($" << Board[side + i].price << ")";
         }
-        cout << "|" << endl;
+        std::cout << "|" << std::endl;
     }
 
-    // Print cells from the bottom row
+    // Print bottom row
     for (int i = 0; i < side; i++) {
-        cout << "| " << Board[side * 3 - 1 - i].name;
-        if (Board[side * 3 - 1 - i].type == 0) {  // If the cell is a Land
-            cout << " ($" << Board[side * 3 - 1 - i].price << ")";
+        std::cout << "| " << Board[2*side + i].name;
+        if (Board[2*side + i].type == 0) {  // If the cell is a Land
+            std::cout << " ($" << Board[2*side + i].price << ")";
         }
     }
-    cout << "|" << endl;
+    std::cout << "|" << std::endl;
+}
 
-    // Print bottom border
-    for (int i = 0; i < side; i++) {
-        cout << "+-----";
-    }
-    cout << "+" << endl;
 }
