@@ -38,7 +38,6 @@ struct Cell{
     int rent;       // -1 if not land
 	int property;
     string owner;   // Normalized to Bank Owned
-    void TriggerEvent(Player &player, Cell board[], Player player_array[]);
 };
 
 void loadBoard(Cell Board[40]);
