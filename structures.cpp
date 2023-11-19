@@ -1,4 +1,7 @@
 //structures.cpp
+#include <iostream>
+#include "structures.h"
+
 using namespace std;
 
 void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
