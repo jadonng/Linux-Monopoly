@@ -6,9 +6,9 @@
 #include "wincheck.h"
 using namespace std;
 
-//A function to check if player p in arr is win.
-//if one of them wins, return true,
-//else return false
+//A function to check which player in arr is a win after specific rounds
+//print the name(s) of the winner(s)
+
 
 void outloop_wincheck(Player *arr, int num_of_player){
     //const int money_to_win=1000;
