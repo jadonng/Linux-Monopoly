@@ -26,14 +26,14 @@ void outloop_wincheck(Player *arr, int num_of_player){
         }
     }
     if(winner.size()>1){
-        cout << "The winners are ";
+        cout << ">> The winners are ";
         for(int i = 0; i < winner.size(); i++){
             cout << winner[i]<< " ";
         }
         cout << endl;
     }
     else{
-        cout << "The winner is "<< winner[0]<< endl;
+        cout << ">> The winner is "<< winner[0]<< endl;
     }
 }
 /*if(p1.money >= money_to_win || p2.money <= 0){
@@ -51,7 +51,7 @@ void outloop_wincheck(Player *arr, int num_of_player){
 //if so return true to eliminate player p
 bool brokecheck(Player p){
     if(p.money < 0){
-        cout << "Player " << p.name << " is broke." << endl;
+        cout << ">> Player " << p.name << " is broke." << endl;
         return true;
     }
 return false;

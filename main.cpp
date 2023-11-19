@@ -53,6 +53,7 @@ int main() {
         // ask user to enter their names
         string name;
         cout << "\nPlayer " << i << " name: (between 2-20 characters): ";
+        cin.ignore();
         getline(cin, name);
 
         vector<int> * land_vec = new vector<int>;
@@ -72,17 +73,17 @@ int main() {
 
         // if current player is in jail, skip his round and change in_jail to false so he can move next round
         if (cur_player.in_jail == true) {
-            cout << "Player " << cur_player.name << " is currently in jail, round skipped." << endl;
+            cout << ">> Player " << cur_player.name << " is currently in jail, round skipped." << endl;
             cur_player.in_jail = false;
             continue;
         }
         // skip player round if they are broke
         if (brokecheck(cur_player)) {
-            cout << "Player " << cur_player.name << " is already broke." << endl;
+            cout << ">> Player " << cur_player.name << " is already broke." << endl;
             continue;
         }
 
-        cout << "Player " << cur_player.name << "'s turn!" << endl;
+        cout << ">> Player " << cur_player.name << "'s turn!" << endl;
 
         // Player first action
         int dice1, dice2;
@@ -95,7 +96,7 @@ int main() {
         else {
             cur_player.pos = &Board[cur_player.pos->ID + dice1 + dice2 - board_size];
             cur_player.money += startpoint_cash;
-            cout << cur_player.name << " passed starting point, recieved $200." << endl;
+            cout << ">> " << cur_player.name << " passed starting point, recieved $200." << endl;
         }
         
         // Triggerevent in structures.h
@@ -114,7 +115,7 @@ int main() {
         if (broke_count == num_player - 1) {
             for (int i = 0; i < num_player; i++) {
                 if (player_array[i].money > 0) {
-                    cout << "Everyone else is broke, " << player_array[i].name << " has won!" << endl;
+                    cout << ">> Everyone else is broke, " << player_array[i].name << " has won!" << endl;
                     game_end = true;
                     break;
                 }
@@ -144,8 +145,8 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
     cout << "2: Check game status" << endl;
     getline(cin, choice);
 
-    while (choice != "1" || choice != "2") {
-        cout << "Invalid choice, please choose again." << endl;
+    while (!(choice == "1" || choice == "2")) {
+        cout << ">> Invalid choice, please choose again." << endl;
         actionBeforeRoll(cur_player, Board, dice1, dice2);
     }
 
@@ -154,7 +155,7 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
             srand(time(NULL));
             dice1 = rand() % 6 + 1;
             dice2 = rand() % 6 + 1;
-            cout << "You rolled " << dice1 + dice2 << "!" << endl;
+            cout << ">> You rolled " << dice1 + dice2 << "!" << endl;
             break;
 
         case 2: // Check Status
@@ -183,8 +184,8 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "3: Check game status" << endl;
             cout << "4: End Round" << endl;
             getline(cin, choice);
-            while (choice != "1" || choice != "2" || choice != "3" || choice != "4") {
-                cout << "Invalid choice, please choose again." << endl;
+            while (!(choice == "1" || choice == "2" || choice == "3" || choice == "4")) {
+                cout << ">> Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
             }
             // Handle user valid choice
@@ -199,7 +200,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                     checkstatus(cur_player, Board);
                     actionAfterRoll(cur_player, Board, type);
                 case 4:
-                    cout << cur_player.name << "'s round ended." << endl;
+                    cout << ">> " << cur_player.name << "'s round ended." << endl;
                     break;
             }
         }
@@ -209,8 +210,8 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "2: Check game status" << endl;
             cout << "3: End Round" << endl;
             getline(cin, choice);
-            while (choice != "1" || choice != "2" || choice != "3" || choice != "4") {
-                cout << "Invalid choice, please choose again." << endl;
+            while (!(choice == "1" || choice == "2" || choice == "3" || choice == "4")) {
+                cout << ">> Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
             }
             // Handle user valid choice
@@ -222,7 +223,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                     checkstatus(cur_player, Board);
                     actionAfterRoll(cur_player, Board, type);
                 case 3:
-                    cout << cur_player.name << "'s round ended." << endl;
+                    cout << ">> " << cur_player.name << "'s round ended." << endl;
                     break;
             }
         }
@@ -236,18 +237,18 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
         cout << "1: Use get out of jail card" << endl;
         cout << "2: Go to jail" << endl;
         getline(cin, choice);
-        while (choice != "1" || choice != "2") {
-            cout << "Invalid choice, please choose again." << endl;
+        while (!(choice == "1" || choice == "2")) {
+            cout << ">> Invalid choice, please choose again." << endl;
             actionAfterRoll(cur_player, Board, type);
         }
         // Handle user valid choice
         switch (stoi(choice)) {
             case 1:
-                cout << "You have used one get out of jail card." << endl;
+                cout << ">> You have used one get out of jail card." << endl;
                 cur_player.num_card -= 1;
                 break;
             case 2:
-                cout << "You are in jail now, rest for one turn." << endl;
+                cout << ">> You are in jail now, rest for one turn." << endl;
                 cur_player.pos = &Board[20];
                 break;
         }   
@@ -259,8 +260,8 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "1: Check game status" << endl;
             cout << "2: End Round" << endl;
             getline(cin, choice);
-            while (choice != "1" || choice != "2") {
-                cout << "Invalid choice, please choose again." << endl;
+            while (!(choice == "1" || choice == "2")) {
+                cout << ">> Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
             }
             // Handle user valid choice
@@ -270,7 +271,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                     actionAfterRoll(cur_player, Board, type);
                     
                 case 2:
-                    cout << cur_player.name << "'s round ended." << endl;
+                    cout << ">> " << cur_player.name << "'s round ended." << endl;
                     break;
             }   
         }
