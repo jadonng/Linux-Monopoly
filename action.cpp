@@ -3,6 +3,7 @@
 #include <string>
 #include "structures.h"
 #include "action.h"
+#include <cmath>
 
 using namespace std;
 void buy(Cell Board[40], Player player){
@@ -29,8 +30,32 @@ void buy(Cell Board[40], Player player){
 
 void payrent(Cell Board[40], Player playerstep, Player playerown){
     int position = playerstep.pos->ID;
-    playerstep.money -= Board[position].rent;
-    playerown.money += Board[position].rent;
-    cout << "You have pay " << Board[position].rent << " to " << playerown.number << endl;
+    playerstep.money -= Board[position].rent * pow(2,Board[position].property);
+    playerown.money += Board[position].rent* pow(2,Board[position].property);
+    cout << "You have pay " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.number << endl;
     cout << "Your remaining balance is " << playerstep.money << endl;
 }
+
+void buildproperty(Cell Board[40], Player playerstep){
+    int position = playerstep.pos->ID;
+    int price;
+    if(position<10){
+        price = 50;
+    }
+    else if(position<20){
+        price =100;
+    }
+    else if(position<30){
+        price = 150;
+    }
+    else{
+        price = 200;
+    }
+    if (playerstep.money>price){
+        playerstep.money-=price;
+        Board[position].property+=1;
+    }
+    else{
+        cout << "You don't have enough cash for this action!" << endl;
+    }
+};

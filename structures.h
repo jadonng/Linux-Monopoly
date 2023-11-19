@@ -31,6 +31,7 @@ struct Cell{
     string name; 
     int price;      // -1 if not Land
     int rent;       // -1 if not land
+	int property;
     string owner;   // Normalized to Bank Owned
     void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
         switch (type) {
