@@ -42,7 +42,8 @@ int main() {
     cin >> initial_cash;
     cout << "\nNumber of Players (2-4): ";
     cin >> num_player;
-    
+    cin.ignore();
+
 
     // Load players
 
@@ -53,7 +54,6 @@ int main() {
         // ask user to enter their names
         string name;
         cout << "\nPlayer " << i << " name: (between 2-20 characters): ";
-        cin.ignore();
         getline(cin, name);
 
         vector<int> * land_vec = new vector<int>;
