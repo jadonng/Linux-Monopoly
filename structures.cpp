@@ -1,5 +1,7 @@
 //structures.cpp
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "structures.h"
 
 using namespace std;
