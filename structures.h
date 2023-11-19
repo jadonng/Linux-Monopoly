@@ -2,6 +2,7 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <cstdlib>
