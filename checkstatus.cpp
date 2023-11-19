@@ -10,12 +10,18 @@ using namespace std;
 // print out player's name, position, money, and lands
 void checkstatus(Player p, Cell board[]){
     cout<<">> Player: "<<p.name<<"\n"<<"Your Position: "<<p.pos -> ID<<"\n"<<"Your Money: "<<p.money<<"\n";
-    cout<<">> Your Land(properties): ";
-    for(int i : p.land_list) {
-        cout<<">> " <<board[i].name<< "("<<board[i].property<<")";
-        cout<<" ";
+    
+    if(p.land_list.size()==0){
+        cout<<">> You have no land yet."<<endl;
     }
-    cout<<"\n";
+    else{
+        cout<<">> Your Land(properties): ";
+        for(int i : p.land_list) {
+            cout<<">> " <<board[i].name<< "("<<board[i].property<<")";
+            cout<<" ";
+        }
+        cout<<"\n";
+    }
 }
 
 
