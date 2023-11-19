@@ -13,10 +13,10 @@ void buy(Cell Board[40], Player player){
             if (player.money >= Board[position].price){
                 player.money -= Board[position].price;
                 Board[position].owner = player.number;
-                cout << ">>You have bought " << Board[position].name << " for " << Board[position].price << endl;
+                cout << ">> You have bought " << Board[position].name << " for " << Board[position].price << endl;
             }
             else{
-                cout << ">>You do not have enough money to buy " << Board[position].name << endl;
+                cout << ">> You do not have enough money to buy " << Board[position].name << endl;
             }
         }
         else{
@@ -32,8 +32,8 @@ void payrent(Cell Board[40], Player playerstep, Player playerown){
     int position = playerstep.pos->ID;
     playerstep.money -= Board[position].rent * pow(2,Board[position].property);
     playerown.money += Board[position].rent* pow(2,Board[position].property);
-    cout << ">>You have pay " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.number << endl;
-    cout << ">>Your remaining balance is " << playerstep.money << endl;
+    cout << ">> You have pay " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.number << endl;
+    cout << ">> Your remaining balance is " << playerstep.money << endl;
 }
 
 void buildproperty(Cell Board[40], Player playerstep){
@@ -54,10 +54,10 @@ void buildproperty(Cell Board[40], Player playerstep){
     if (playerstep.money>price){
         playerstep.money-=price;
         Board[position].property+=1;
-        cout << ">>You have build a house on" << Board[position].name <<"!"<< endl;
-        cout << ">>" << Board[position].name << "currently have " << Board[position].property << " houses." << endl;
+        cout << ">> You have build a house on " << Board[position].name <<"!"<< endl;
+        cout << ">> " << Board[position].name << "currently have " << Board[position].property << " houses." << endl;
     }
     else{
-        cout << ">>You don't have enough cash for this action!" << endl;
+        cout << ">> You don't have enough cash for this action!" << endl;
     }
 };
