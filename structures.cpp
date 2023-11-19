@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
+void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_of_player) {
         switch (player.pos -> type) {
 	case 0:
             	// event to be triggered if player land on land
@@ -26,10 +26,11 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
 			cout << "You have arrived " << player.pos -> name << " which is owned by " << player.pos -> owner << " with the rent of " << player.pos -> rent <<endl;
 			player.can_buy_land_or_properties = false;
 			cout << "You have to pay " << player.pos -> rent << " to " << player.pos -> name << endl;
-			for(Player &p : player_array){
-				if(p.name == player.pos -> owner){
-					payrent(board, player, p);
-				}
+			for(int i=0; i<num_of_player; i++){
+    				Player& p = player_array[I];
+    				if(p.name == player.pos->owner){
+      					payrent(board, player, p);
+      				}
 			}
 		}
 		break;
