@@ -53,7 +53,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
 		cout << "You need to pay " << tax << " for the " << player.pos -> name << endl;
 		player.money -= tax;
 		break;
-	case 3:
+	case 3: {
 	        // event to be triggered if player land on chance
 	        srand(time(NULL));
 	        int chance_no = rand()%6+1;
@@ -99,7 +99,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
                     		break;
 	            }
 		    break;
-
+	}
         case 4:
 		// event to be triggered if player land on jail
 		//if the player was sent to jail last time and skipped a rolling dice
