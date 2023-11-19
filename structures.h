@@ -37,7 +37,7 @@ struct Cell{
     void TriggerEvent(Player &player, Cell board[], Player player_array[]) {
         switch (type) {
 	        case 0:
-            // event to be triggered if player land on land
+            	// event to be triggered if player land on land
 		//if the land is owned by player
 		if(player.pos -> owner == player.name){
 			cout << "You have arrived " << player.pos -> name << " which is owned by you with the rent of " << player.pos -> rent <<endl;
@@ -56,6 +56,7 @@ struct Cell{
 			for(Player &p : player_array){
 				if(p.name == player.pos -> owner){
 					payrent(board, player, p);
+				}
 			}
 		}
 		break;
