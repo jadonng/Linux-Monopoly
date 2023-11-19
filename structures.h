@@ -8,6 +8,8 @@
 #include <ctime>
 
 using namespace std;
+struct Player;
+struct Cell;
 
 struct Player{
   /* Explanation:
