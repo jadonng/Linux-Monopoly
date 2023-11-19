@@ -4,7 +4,6 @@
 
 #include "structures.h"
 
-void loadBoard(Cell Board[40]);
 void printBoard(Cell Board[], int size);
 
 #endif
