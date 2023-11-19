@@ -89,11 +89,11 @@ int main() {
         actionBeforeRoll(cur_player, Board, &dice1, &dice2);
 
         // Move the player
-        if (cur_player.pos->ID + dice < board_size) {
+        if (cur_player.pos->ID + dice1 + dice2 < board_size) {
             cur_player.pos = &Board[cur_player.pos->ID + dice];
         }
         else {
-            cur_player.pos = &Board[cur_player.pos->ID + dice - board_size];
+            cur_player.pos = &Board[cur_player.pos->ID + dice1 + dice2 - board_size];
             cur_player.money += startpoint_cash;
             cout << cur_player.name << " passed starting point, recieved $200." << endl;
         }
@@ -159,7 +159,7 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
 
         case 2: // Check Status
             checkstatus(cur_player,Board);
-            actionBeforeRoll(cur_player, Board, dice);
+            actionBeforeRoll(cur_player, Board, &dice1, &dice2);
             break;
     }   
 }
