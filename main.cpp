@@ -123,9 +123,9 @@ int main() {
             }
         }
 
-    if (game_end) {
-        break;
-    }
+        if (game_end) {
+            break;
+        }
         
     }
     wincheck(player_array, num_player);
