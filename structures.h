@@ -53,7 +53,7 @@ struct Cell{
 			cout << "You have to pay " << player.pos -> rent << " to " << player.pos -> name << endl;
 			for(Player &p : player_array){
 				if(p.name == player.pos -> owner){
-					payrent(board, player, p)
+					payrent(board, player, p);
 			}
 		}
 		break;
@@ -73,7 +73,7 @@ struct Cell{
 			int luxury_tax = 25;
 			tax = luxury_tax;
 		}	
-		cout << "You need to pay " << tax << " for the " << player.pos -> name << end;
+		cout << "You need to pay " << tax << " for the " << player.pos -> name << endl;
 		player.money -= tax;
             case 3: 
 	        // event to be triggered if player land on chance
@@ -148,6 +148,7 @@ struct Cell{
 		break;
         }
     }
+	}
 };
 
 void loadBoard(Cell Board[40]);
