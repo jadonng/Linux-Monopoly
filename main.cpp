@@ -237,7 +237,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
         cout << "1: Use get out of jail card" << endl;
         cout << "2: Go to jail" << endl;
         getline(cin, choice);
-        while !((choice == "1" || choice == "2")) {
+        while (!(choice == "1" || choice == "2")) {
             cout << "Invalid choice, please choose again." << endl;
             actionAfterRoll(cur_player, Board, type);
         }
@@ -260,7 +260,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "1: Check game status" << endl;
             cout << "2: End Round" << endl;
             getline(cin, choice);
-            while !((choice == "1" || choice == "2")) {
+            while (!(choice == "1" || choice == "2")) {
                 cout << "Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
             }
