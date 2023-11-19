@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include "structures.h"
+#include "board.h"
 using namespace std;
 
 void loadBoard(Cell Board[40]){
