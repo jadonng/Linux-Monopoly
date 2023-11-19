@@ -100,7 +100,7 @@ int main() {
         }
         
         // Triggerevent in structures.h
-        cur_player.pos->TriggerEvent(cur_player, Board, player_array);
+        TriggerEvent(cur_player, Board, player_array);
 
         // After correspinding events are triggered, allow user to pick their actions
         actionAfterRoll(cur_player, Board, cur_player.pos->type);
