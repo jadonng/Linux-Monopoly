@@ -6,7 +6,7 @@
 #include <cmath>
 
 using namespace std;
-void buy(Cell Board[40], Player player){
+void buy(Cell &Board[40], Player &player){
     int position = player.pos->ID;
     if (Board[position].type == 0){
         if (Board[position].owner == "Bank"){
@@ -28,7 +28,7 @@ void buy(Cell Board[40], Player player){
     }
 }
 
-void payrent(Cell Board[40], Player playerstep, Player playerown){
+void payrent(Cell &Board[40], Player &playerstep, Player &playerown){
     int position = playerstep.pos->ID;
     playerstep.money -= Board[position].rent * pow(2,Board[position].property);
     playerown.money += Board[position].rent* pow(2,Board[position].property);
@@ -36,7 +36,7 @@ void payrent(Cell Board[40], Player playerstep, Player playerown){
     cout << ">> Your remaining balance is " << playerstep.money << endl;
 }
 
-void buildproperty(Cell Board[40], Player playerstep){
+void buildproperty(Cell &Board[40], Player &playerstep){
     int position = playerstep.pos->ID;
     int price;
     if(position<10){
