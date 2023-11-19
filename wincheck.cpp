@@ -9,17 +9,31 @@ using namespace std;
 //if one of them wins, return true,
 //else return false
 
-bool wincheck(Player *arr, int num_of_player){
-    const int money_to_win=1000;
-    bool if_game_ends = false;
+void outloop_wincheck(Player *arr, int num_of_player){
+    //const int money_to_win=1000;
+    int max_amount = 0;
+    vector<string> winner;
     
     for(int i = 0; i < num_of_player; i++){
-        if(arr[i].money >= money_to_win){
-            cout<<"Player " << arr[i].name << " wins!"<<endl;
-            return true;
+        if(arr[i].money >= max_amount){
+            max_amount = arr[i].money;
+        } 
+    }
+    for(int i = 0; i < num_of_player; i++){
+        if(arr[i].money == max_amount){
+            winner.push_back(arr[i].name);
         }
     }
-    return false;
+    if(winner.size()>1){
+        cout << "The winners are ";
+        for(int i = 0; i < winner.size(); i++){
+            cout << winner[i]<< " ";
+        }
+        cout << endl;
+    }
+    else{
+        cout << "The winner is "<< winner[0]<< endl;
+    }
 }
 /*if(p1.money >= money_to_win || p2.money <= 0){
         cout<<"Player 1 wins!"<<endl;
