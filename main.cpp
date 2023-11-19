@@ -106,7 +106,7 @@ int main() {
         actionAfterRoll(cur_player, Board, cur_player.pos->type);
 
         // Check if anyone is broke or satistfy winning conditions
-        wincheck(player_array);
+        wincheck(player_array, num_player);
 
     }
 
