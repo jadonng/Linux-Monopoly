@@ -1,6 +1,7 @@
 //wincheck.cpp
 #include <iostream>
 #include <string>
+#include <vector>
 #include "structures.h"
 #include "wincheck.h"
 using namespace std;
