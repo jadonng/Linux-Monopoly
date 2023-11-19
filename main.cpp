@@ -145,7 +145,7 @@ void actionBeforeRoll(Player cur_player, Cell Board[], int &dice1, int &dice2) {
     cout << "2: Check game status" << endl;
     getline(cin, choice);
 
-    while (choice != "1" || choice != "2") {
+    while (!(choice == "1" || choice == "2")) {
         cout << "Invalid choice, please choose again." << endl;
         actionBeforeRoll(cur_player, Board, dice1, dice2);
     }
@@ -184,7 +184,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "3: Check game status" << endl;
             cout << "4: End Round" << endl;
             getline(cin, choice);
-            while (choice != "1" || choice != "2" || choice != "3" || choice != "4") {
+            while (!(choice == "1" || choice == "2" || choice == "3" || choice == "4")) {
                 cout << "Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
             }
@@ -210,7 +210,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "2: Check game status" << endl;
             cout << "3: End Round" << endl;
             getline(cin, choice);
-            while (choice != "1" || choice != "2" || choice != "3" || choice != "4") {
+            while (!(choice == "1" || choice == "2" || choice == "3" || choice == "4")) {
                 cout << "Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
             }
@@ -237,7 +237,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
         cout << "1: Use get out of jail card" << endl;
         cout << "2: Go to jail" << endl;
         getline(cin, choice);
-        while (choice != "1" || choice != "2") {
+        while !((choice == "1" || choice == "2")) {
             cout << "Invalid choice, please choose again." << endl;
             actionAfterRoll(cur_player, Board, type);
         }
@@ -260,7 +260,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             cout << "1: Check game status" << endl;
             cout << "2: End Round" << endl;
             getline(cin, choice);
-            while (choice != "1" || choice != "2") {
+            while !((choice == "1" || choice == "2")) {
                 cout << "Invalid choice, please choose again." << endl;
                 actionAfterRoll(cur_player, Board, type);
             }
