@@ -55,7 +55,7 @@ void buildproperty(Cell Board[], Player &playerstep){
         playerstep.money-=price;
         Board[position].property+=1;
         cout << ">> You have build a house on " << Board[position].name <<"!"<< endl;
-        cout << ">> " << Board[position].name << "currently have " << Board[position].property << " houses." << endl;
+        cout << ">> " << Board[position].name << " currently have " << Board[position].property << " houses." << endl;
     }
     else{
         cout << ">> You don't have enough cash for this action!" << endl;
