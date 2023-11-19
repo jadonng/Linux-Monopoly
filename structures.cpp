@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "structures.h"
+#include "action.h"
 
 using namespace std;
 
