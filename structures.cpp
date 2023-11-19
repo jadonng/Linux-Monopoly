@@ -25,7 +25,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 		else{
 			cout << ">> You have arrived " << player.pos -> name << " which is owned by " << player.pos -> owner << " with the rent of " << player.pos -> rent <<endl;
 			player.can_buy_land_or_properties = false;
-			cout << ">> You have to pay " << player.pos -> rent << " to " << player.pos -> name << endl;
+			cout << ">> You have to pay " << player.pos -> rent << " to " << player.pos -> owner << endl;
 			for(int i=0; i<num_of_player; i++){
     				Player& p = player_array[i];
     				if(p.name == player.pos->owner){
