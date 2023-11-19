@@ -126,7 +126,7 @@ int main() {
         }
         
     }
-    wincheck(player_array, num_player);
+    outloop_wincheck(player_array, num_player);
     // Delete memory 
     for (int i = 0; i < num_player; i++) {
         delete &(player_array[i].land_list);
