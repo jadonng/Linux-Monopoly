@@ -175,7 +175,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
                     buy(Board, cur_player);
                     actionAfterRoll(cur_player, Board, type);
                 case 2:
-                    buildproperty(cur_player.pos);
+                    buildproperty(Board, cur_player);
                     actionAfterRoll(cur_player, Board, type);
                 case 3:
                     checkstatus(cur_player, Board);
@@ -198,7 +198,7 @@ void actionAfterRoll(Player cur_player, Cell Board[], int type) {
             // Handle user valid choice
             switch (stoi(choice)) {
                 case 1:   
-                    buildproperty();
+                    buildproperty(Board,cur_player);
                     actionAfterRoll(cur_player, Board, type);
                 case 2:
                     checkstatus(cur_player, Board);
