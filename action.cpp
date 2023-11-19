@@ -12,7 +12,7 @@ void buy(Cell Board[40], Player player){
         if (Board[position].owner == "Bank"){
             if (player.money >= Board[position].price){
                 player.money -= Board[position].price;
-                Board[position].owner = player.number;
+                Board[position].owner = player.name;
                 cout << ">> You have bought " << Board[position].name << " for " << Board[position].price << endl;
             }
             else{
