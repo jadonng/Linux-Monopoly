@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "printBoard.h"
+#include "structures.h"
 #include "board.h"
 
 const int BOARD_SIZE = 40;
