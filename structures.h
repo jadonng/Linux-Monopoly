@@ -15,10 +15,10 @@ struct Player{
      land_list: vector listing the index of land that the player owns,
                 (e.g., if the player purchased land at cell c3 and c19, then land_list = {3, 19})
   */
-	char number;
+	int number;
 	string name;
 	Cell *pos;
-	int money;
+	double money;
 	vector<int> land_list;
 	int num_card;           //number of card the player got
 	bool in_jail = false;   //if the player is in jail now
