@@ -59,5 +59,3 @@ void printBoard(Cell Board[BOARD_SIZE]) {
     }
     std::cout << "|" << std::endl;
 }
-
-}
