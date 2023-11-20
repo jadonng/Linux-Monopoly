@@ -22,7 +22,7 @@ void loadBoard(Cell Board[BOARD_SIZE]) {
         Board[i].name = cellNames[i];  // Set the name from the cellNames array
     }
     
-void printBoard(Cell Board[40]) {
+void printBoard(Cell Board[BOARD_SIZE]) {
     int side = BOARD_SIZE / 4;
 
     // Print top row
