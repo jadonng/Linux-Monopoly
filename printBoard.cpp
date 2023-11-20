@@ -6,7 +6,7 @@
 
 const int BOARD_SIZE = 40;
 
-void printBoard(Cell Board[BOARD_SIZE]) {
+void printBoard(Cell Board[]) {
     int side = BOARD_SIZE / 4;
 
     // Print top row
