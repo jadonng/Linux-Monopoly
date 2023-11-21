@@ -6,7 +6,7 @@
 #include "board.h"
 
 const int BOARD_SIZE = 40;
-const int CELL_WIDTH = 20;  // Define a constant for cell width
+const int CELL_WIDTH = 25;  // Define a constant for cell width
 
 void printBoard(Cell Board[]) {
     int side = BOARD_SIZE / 4;
