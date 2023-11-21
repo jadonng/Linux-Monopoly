@@ -8,6 +8,10 @@
 using namespace std;
 
 void loadBoard(Cell Board[40]){
+
+    //This function intakes board.txt
+    //This function set the fundamental board for the game to take place
+
     ifstream fin;
     fin.open("board.txt");
     if ( fin.fail() ){
@@ -21,4 +25,7 @@ void loadBoard(Cell Board[40]){
         Board[i].property=0;
     }
     fin.close();
+
+    //This function returns no output
+
 }

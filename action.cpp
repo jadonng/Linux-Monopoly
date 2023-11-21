@@ -7,12 +7,18 @@
 
 using namespace std;
 void buy(Cell Board[], Player &player){
+
+    //The buy function intakes the Board of the game of the Player
+    //When being called, the ownership status of the cell will be changed
+    //The player's vector of ownership will also expand by the cell the player bought
+
     int position = player.pos->ID;
     if (Board[position].type == 0){
         if (Board[position].owner == "Bank"){
             if (player.money >= Board[position].price){
                 player.money -= Board[position].price;
                 Board[position].owner = player.name;
+                (player.land_list).push_back(position);
                 cout << ">> You have bought " << Board[position].name << " for " << Board[position].price << endl;
             }
             else{
@@ -26,17 +32,30 @@ void buy(Cell Board[], Player &player){
     else{
         cout << ">>" << Board[position].name << " is not a land, you cannot buy it" << endl;
     }
+
+    //The function returns no output
 }
 
 void payrent(Cell Board[], Player &playerstep, Player &playerown){
+    
+    //This function intakes the board, the player that step on the cell, the player that own that cell
+    //Will deduct the rent of the land from the player that step on the cell, and transfer the amount to the player who own it
+
     int position = playerstep.pos->ID;
     playerstep.money -= Board[position].rent * pow(2,Board[position].property);
     playerown.money += Board[position].rent* pow(2,Board[position].property);
     cout << ">> You have pay " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.name << endl;
     cout << ">> Your remaining balance is " << playerstep.money << endl;
+
+    //The function returns no output
+
 }
 
 void buildproperty(Cell Board[], Player &playerstep){
+    
+    //This function intakes the Player and the Cell
+    //Will set the price for the property, then build +1 property on the Cell
+
     int position = playerstep.pos->ID;
     int price;
     if(position<10){
@@ -60,4 +79,7 @@ void buildproperty(Cell Board[], Player &playerstep){
     else{
         cout << ">> You don't have enough cash for this action!" << endl;
     }
+
+    //The function returns no output
+
 };

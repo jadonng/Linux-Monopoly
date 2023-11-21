@@ -31,12 +31,15 @@ struct Player{
 };
 
 struct Cell{
+
+  //Define the basic structure of the each cell in the board
+
     int ID;         //Location(0-39)
     int type;       //(0 = Land, 1 = Starting Point, 2 = Punishment, 3 = Chance, 4 = Jail, 5 = Go to Jail, 6 = NULL)
-    string name; 
+    string name;    // Name of the land, customizable by changing board.txt
     int price;      // -1 if not Land
     int rent;       // -1 if not land
-    int property;
+    int property;   // All land start with 0 Property
     string owner;   // Normalized to Bank Owned
 };
 
