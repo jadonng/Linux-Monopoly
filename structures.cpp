@@ -125,7 +125,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 		//if no card, just arrested
 		else{
 			cout << ">> You are in jail now, rest for one turn." << endl;
-			player.pos = &board[20];//send to jail
+			player.pos = &board[10];//send to jail
 			player.in_jail = true;
 		}
 		break;
