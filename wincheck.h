@@ -4,7 +4,7 @@
 #include "structures.h"
 using namespace std;
 
-void outloop_wincheck(Player *&arr, int num_of_player, Cell board[]);
+void outloop_wincheck(Player *arr, int num_of_player, Cell board[]);
 bool brokecheck(Player p);
 
 #endif
