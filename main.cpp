@@ -133,7 +133,7 @@ int main() {
         player_array[cur_round%num_player] = cur_player;
         
     }
-    outloop_wincheck(player_array, num_player);
+    outloop_wincheck(player_array, num_player, Board);
     // Delete array memory 
     delete [] player_array;
 
