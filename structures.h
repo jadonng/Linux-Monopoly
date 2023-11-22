@@ -25,7 +25,7 @@ struct Player{
 	Cell *pos;
 	double money;
 	vector<int> land_list;
-	int num_card;           //number of card the player got
+	int num_card = 0;           //number of card the player got
 	bool in_jail;   //if the player is in jail now
 	bool can_buy_land_or_properties;
 };
