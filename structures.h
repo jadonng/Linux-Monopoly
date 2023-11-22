@@ -28,6 +28,7 @@ struct Player{
 	int num_card;           //number of card the player got
 	bool in_jail;   //if the player is in jail now
 	bool can_buy_land_or_properties;
+	int properties; //all properties player owns
 };
 
 struct Cell{
