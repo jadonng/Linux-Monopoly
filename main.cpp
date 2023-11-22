@@ -53,7 +53,7 @@ int main() {
     for (int i = 0; i < num_player; i++) {
         // ask user to enter their names
         string name;
-        cout << "\nPlayer " << i << " name: (between 2-20 characters): ";
+        cout << "\nPlayer " << i+1 << " name: (between 2-20 characters): ";
         getline(cin, name);
 
         vector<int> * land_vec = new vector<int>;
