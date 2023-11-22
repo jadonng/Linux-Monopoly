@@ -16,8 +16,13 @@ void outloop_wincheck(Player *arr, int num_of_player){
     vector<string> winner;
     
     for(int i = 0; i < num_of_player; i++){
-        if(arr[i].money >= max_amount){
-            max_amount = arr[i].money;
+        int properties = arr[i].money;
+        for(int j = 0; j < arr[i].land_list.size(); i++){
+            properties = properties + arr[i].land_list[j].price + 50 * arr[i].land_list[j].property;
+        }
+
+        if(properties >= max_amount){
+            max_amount = properties;
         } 
     }
     for(int i = 0; i < num_of_player; i++){
@@ -51,7 +56,7 @@ void outloop_wincheck(Player *arr, int num_of_player){
 //if so return true to eliminate player p
 bool brokecheck(Player p){
     if(p.money < 0){
-        cout << ">> Player " << p.name << " is broke." << endl;
+        //cout << ">> Player " << p.name << " is broke." << endl;
         return true;
     }
 return false;
