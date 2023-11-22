@@ -13,7 +13,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
             	// event to be triggered if player land on land
 		//if the land is owned by player
 		if(player.pos -> owner == player.name){
-			cout << ">> You have arrived " << player.pos -> name << " which is owned by you with the rent of " << player.pos -> rent <<endl;
+			cout << ">> You have arrived " << player.pos -> name << " which is owned by you with the rent of " << board[player.pos->ID].rent*pow(2,board[player.pos->ID].property) <<endl;
 			player.can_buy_land_or_properties = true;
 		}
 		//if the land is owned by bank
@@ -23,7 +23,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 		}
 		//if the land is owned by other player
 		else{
-			cout << ">> You have arrived " << player.pos -> name << " which is owned by " << player.pos -> owner << " with the rent of " << player.pos -> rent <<endl;
+			cout << ">> You have arrived " << player.pos -> name << " which is owned by " << player.pos -> owner << " with the rent of " << board[player.pos->ID].rent*pow(2,board[player.pos->ID].property) <<endl;
 			player.can_buy_land_or_properties = false;
 			//cout << ">> You have to pay " << player.pos -> rent << " to " << player.pos -> owner << endl;
 			for(int i=0; i<num_of_player; i++){
