@@ -36,7 +36,7 @@ int main() {
     cout << "*************************************" << endl;
     cout << "\nPlease fill in the following configurations to start the game." << endl;
     // add some defensive programming later
-    cout << "\nNumber of rounds for each player(must be an integer): ";
+    cout << "\nNumber of rounds for each player (must be an integer): ";
     cin >> rounds;
     cout << "\nInitial Cash (must be positive): ";
     cin >> initial_cash;
