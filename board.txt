@@ -18,7 +18,7 @@
 3 Chance -1 -1
 0 T.T.Tsui_Building 180 14
 0 Kadoorie_Building 200 16
-6 Jail -1 -1
+0 UHS 200 50 
 0 Main_Building 220 18
 3 Chance -1 -1
 0 Composite_Building 220 18
@@ -27,7 +27,7 @@
 0 The_Jockey_Club_Tower 260 22
 0 Cheng_Yu_Tung_Building 260 22
 0 SU_Canteen 150 20
-0 Eilot Hall 280 24
+0 Eilot_Hall 280 24
 5 Go_To_Jail -1 -1
 0 Libaray_Extension 300 26
 0 May_Hall 300 26 
