@@ -17,7 +17,7 @@ void checkstatus(Player p, Cell board[]){
     else{
         cout<<">> Your Land(properties): ";
         for(int i : p.land_list) {
-            cout<<">> " <<board[i].name<< "("<<board[i].property<<")";
+            cout<<board[i].name<< "("<<board[i].property<<")";
             cout<<" ";
         }
         cout<<"\n";
