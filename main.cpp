@@ -75,7 +75,7 @@ int main() {
 
         // if current player is in jail, skip his round and change in_jail to false so he can move next round
         if (cur_player.in_jail == true) {
-            cout << ">> Player " << cur_player.name << " is currently in jail, round skipped." << endl;
+            cout << ">> Player " << cur_player.name << " is currently in jail, round skipped. You can move next round." << endl;
             TriggerEvent(cur_player, Board, player_array, num_player);
             actionAfterRoll(cur_player, Board, cur_player.pos->type);
             player_array[cur_round%num_player] = cur_player;
