@@ -23,6 +23,9 @@ void outloop_wincheck(Player *arr, int num_of_player, Cell board[]){
             }
             cout<< arr[i].properties<<endl;
         }
+        else{
+            arr[i].properties = arr[i].money;
+        }
 
         if(arr[i].properties >= max_amount){
             max_amount = arr[i].properties;
