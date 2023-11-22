@@ -10,7 +10,7 @@ using namespace std;
 //print the name(s) of the winner(s)
 
 
-void outloop_wincheck(Player *&arr, int num_of_player, Cell board[]){
+void outloop_wincheck(Player *arr, int num_of_player, Cell board[]){
     //const int money_to_win=1000;
     int max_amount = 0;
     vector<string> winner;
