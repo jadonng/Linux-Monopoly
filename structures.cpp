@@ -74,6 +74,7 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 			        cout << ">> Chance: Go Back 3 Spaces" << endl;
 			        cout << ">> Move backward by 3 cells" << endl;
 			        player.pos -= 3;
+				TriggerEvent(player, board, player_array, num_of_player);
 			        break;
 		        case 3: // tax
 			        cout << ">> Chance: Tax" << endl;
@@ -90,13 +91,14 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 			        cout << ">> You get a jail card to have a chance to be released from the jail!" << endl;
 			        player.num_card++;
 			        break;
-      		          case 6: // advance to MTR Exit B
+      		        case 6: // advance to MTR Exit B
 	                	cout << ">> Chance: Advance to MTR Exit B" << endl;
 	        	        cout << ">> Move to MTR Exit B, collect $200 if pass through GO" << endl;
                     		if (player.pos > &board[25]) { // pass through GO
                         		player.money += 200;
                     		}
                     		player.pos = &board[25];
+				TriggerEvent(player, board, player_array, num_of_player);
                     		break;
 	            }
 		    break;
