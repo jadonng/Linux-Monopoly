@@ -20,6 +20,7 @@ void outloop_wincheck(Player *arr, int num_of_player, Cell board[]){
         for(int j = 0; j < arr[i].land_list.size(); i++){
             arr[i].properties += board[arr[i].land_list[j]].price + 50 * board[arr[i].land_list[j]].property;
         }
+        cout<< arr[i].properties<<endl;
 
         if(arr[i].properties >= max_amount){
             max_amount = arr[i].properties;
