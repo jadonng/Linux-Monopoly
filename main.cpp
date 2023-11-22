@@ -57,7 +57,7 @@ int main() {
         getline(cin, name);
 
         vector<int> * land_vec = new vector<int>;
-        Player * new_player = new Player { i, name, &Board[0], initial_cash, *land_vec, 0, false, false};
+        Player * new_player = new Player { i, name, &Board[0], initial_cash, *land_vec, 0, false, false, 0};
         player_array[i] = *new_player;
         delete land_vec;
         delete new_player;
