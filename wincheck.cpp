@@ -16,9 +16,9 @@ void outloop_wincheck(Player *&arr, int num_of_player){
     vector<string> winner;
     
     for(int i = 0; i < num_of_player; i++){
-        arr[i].properties = arr[i].money;
+        arr[i].properties += arr[i].money;
         for(int j = 0; j < arr[i].land_list.size(); i++){
-            arr[i].properties = arr[i].properties + arr[i].land_list[j].price + 50 * arr[i].land_list[j].property;
+            arr[i].properties += arr[i].land_list[j].price + 50 * arr[i].land_list[j].property;
         }
 
         if(arr[i].properties >= max_amount){
