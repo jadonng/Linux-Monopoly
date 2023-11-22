@@ -107,7 +107,6 @@ void TriggerEvent(Player &player, Cell board[], Player player_array[], int num_o
 		// event to be triggered if player land on jail
 		//if the player was sent to jail last time and skipped a rolling dice
 		if(player.in_jail){
-			cout << ">> Now you are released, you can move next turn!" << endl;
 			player.in_jail = false;
 		}
 		//move to the jail with rolling dice
