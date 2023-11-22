@@ -40,7 +40,7 @@ struct Cell{
     string name;    // Name of the land, customizable by changing board.txt
     int price;      // -1 if not Land
     int rent;       // -1 if not land
-    int property;   // All land start with 0 Property
+    int property = 0;   // All land start with 0 Property
     string owner;   // Normalized to Bank Owned
 };
 
