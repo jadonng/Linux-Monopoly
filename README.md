@@ -76,7 +76,7 @@ wincheck.h: header file of the wincheck.cpp
 
 7.) checkstatus.cpp:
 
-    cotain the checkstatus function, which allows players to check his/her status
+    contain the checkstatus function, which allows players to check his/her status
 
 8.) checkstatus.h:
 
@@ -88,7 +88,7 @@ wincheck.h: header file of the wincheck.cpp
 
 10.) printBoard.cpp:
 
-     contain the printBoard function, which displays the current board layout
+     contain the printBoard function, which displays the entire board layout with the names and prices of various of lands
 
 11.) printBoard.h:
 
