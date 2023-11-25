@@ -31,6 +31,7 @@ wincheck.cpp: functions of checking winning of the players after specific turns 
 wincheck.h: head file of the wincheck.cpp
 
 Description of files
+
 1.) Makefile:
     makefile for generating the executable main file, and for cleaning all .o files
 
