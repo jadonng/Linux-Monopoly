@@ -35,7 +35,7 @@ checkstatus.h: header file of checkstatus.cpp
 
 main.cpp: main program, with the function of action before rolling dices and after rolling.
 
-printBoard.cpp: function of printing the board on the screen
+printBoard.cpp: function of printing the board alongside the names and prices of the lands on the screen
 
 printBoard.h: header file of printBoard.cpp
 
