@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>  // Include this library
-#include "printBoard.h"
+#include <iomanip>
 #include "structures.h"
 #include "board.h"
 
@@ -12,36 +11,84 @@ void printBoard(Cell Board[]) {
     int side = BOARD_SIZE / 4;
 
     // Print top row
-    for (int i = 0; i <= side; i++) {  // Change here
+    for (int i = 0; i <= side; i++) {
+        std::cout << "--------------------------";
+    }
+    std::cout << std::endl;
+    for (int i = 0; i <= side; i++) {
         std::cout << "| " << std::setw(CELL_WIDTH) << std::left << Board[i].name;
+    }
+    std::cout << "|" << std::endl;
+    for (int i = 0; i <= side; i++) {
+        std::cout << "|                         ";
+    }
+    std::cout << "|" << std::endl;
+    for (int i = 0; i <= side; i++) {
         if (Board[i].type == 0) {  // If the cell is a Land
-            std::cout << " ($" << Board[i].price << ")";
+            std::cout << "| $" << std::setw(CELL_WIDTH) << Board[i].price;
+        } else {
+            std::cout << "|                         ";
         }
     }
     std::cout << "|" << std::endl;
+    for (int i = 0; i <= side; i++) {
+        std::cout << "--------------------------";
+    }
+    std::cout << std::endl;
 
     // Print cells from the left and right columns
-    for (int i = 1; i < side; i++) {  // No change here
-        std::cout << "| " << std::setw(CELL_WIDTH) << std::left << Board[3*side - i].name;
-        if (Board[3*side - i].type == 0) {  // If the cell is a Land
-            std::cout << " ($" << Board[3*side - i].price << ")";
-        }
-        for (int j = 0; j < side - 2; j++) {
-            std::cout << "|     ";
-        }
-        std::cout << "| " << std::setw(CELL_WIDTH) << std::left << Board[side + i].name;
-        if (Board[side + i].type == 0) {  // If the cell is a Land
-            std::cout << " ($" << Board[side + i].price << ")";
-        }
-        std::cout << "|" << std::endl;
+    for (int i = 1; i <= side; i++) {
+    // Left column
+    	std::cout << "| " << std::setw(CELL_WIDTH) << std::left << Board[3*side - i].name;
+    	for (int j = 0; j < side - 2; j++) {
+        	std::cout << std::setw(CELL_WIDTH) << " ";	
     }
+    	std::cout << "| " << std::setw(CELL_WIDTH) << std::left << Board[side + i].name;
 
+    	std::cout << "|" << std::endl;
+    	std::cout << "|                         ";
+    	std::cout << "|" << std::endl;
+    	if (Board[3*side - i].type == 0) {  // If the cell is a Land
+        	std::cout << "| $" << std::setw(CELL_WIDTH) << Board[3*side - i].price;
+    } else {
+        std::cout << "|                         ";
+    }
+	for (int j = 0; j < side - 2; j++) {
+        	std::cout << std::setw(CELL_WIDTH) << " ";	
+    }
+    	// std::cout << "|" << std::endl;
+    	if (Board[side + i].type == 0) {  // If the cell is a Land
+        	std::cout << "| $" << std::setw(CELL_WIDTH) << Board[side + i].price;
+    } else {
+        std::cout << "|                         ";
+    }
+    std::cout << "|" << std::endl;
+}
+
+        
     // Print bottom row
-    for (int i = 0; i <= side; i++) {  // Change here
+    for (int i = 0; i <= side; i++) {
+        std::cout << "--------------------------";
+    }
+    std::cout << std::endl;
+    for (int i = 0; i <= side; i++) {
         std::cout << "| " << std::setw(CELL_WIDTH) << std::left << Board[2*side + i].name;
+    }
+    std::cout << std::endl;
+    for (int i = 0; i <= side; i++) {
+        std::cout << "|                         ";
+    }
+    std::cout << "|" << std::endl;
+    for (int i = 0; i <= side; i++) {
         if (Board[2*side + i].type == 0) {  // If the cell is a Land
-            std::cout << " ($" << Board[2*side + i].price << ")";
+            std::cout << "| $" << std::setw(CELL_WIDTH) << Board[2*side + i].price;
+        } else {
+            std::cout << "|                         ";
         }
     }
     std::cout << "|" << std::endl;
+    for (int i = 0; i <= side; i++) {
+        std::cout << "--------------------------";
+    }
+    std::cout << std::endl;
 }
