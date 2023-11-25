@@ -21,31 +21,31 @@ Meet requirements.
 
 action.cpp: functions of buying no-owner land, buying properties, and paying rents to the owner of the land
 
-action.h: head file of action.cpp
+action.h: header file of action.cpp
 
 board.cpp: function of loading board to the array
 
-board.h: head file of board.cpp
+board.h: header file of board.cpp
 
 board.txt: txt file with the attributes of cells
 
 checkstatus.cpp: function of checking player status of money, items, etc.
 
-checkstatus.h: head file of checkstatus.cpp
+checkstatus.h: header file of checkstatus.cpp
 
 main.cpp: main program, with the function of action before rolling dices and after rolling.
 
 printBoard.cpp: function of printing the board on the screen
 
-printBoard.h: head file of printBoard.cpp
+printBoard.h: header file of printBoard.cpp
 
 structures.cpp: function of triggering events of diverse types of cells
 
-structures.h: declaring the structures, head file of structures.cpp
+structures.h: declaring the structures, header file of structures.cpp
 
 wincheck.cpp: functions of checking winning of the players after specific turns and checking if a player broke
 
-wincheck.h: head file of the wincheck.cpp
+wincheck.h: header file of the wincheck.cpp
 
 
    Description of files
