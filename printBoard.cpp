@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include "printtBoard.h"
 #include "structures.h"
 #include "board.h"
 
