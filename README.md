@@ -85,7 +85,9 @@ Description of files
      header file for structures.cpp; contain structures Player (structure for each player) and Cell (structure for each cell of board)
 
 14.) wincheck.cpp:
+
      contain functions that check whether any player wins or is broke
 
 15.) wincheck.h:
+
      header file for wincheck.cpp
