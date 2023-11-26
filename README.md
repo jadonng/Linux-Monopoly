@@ -1,5 +1,46 @@
 # COMP2113_Group30
-Meet requirements.
+## How to Play Text-Based Monopoly (HKU version) in C++
+
+Welcome to the world of HKU! 
+This guide will help you understand how to play the text-based Monopoly game we have built in C++.
+
+### Starting the Game
+
+By simply typing
+
+      make main
+
+to create an executable .exe file for the game
+
+Then type 
+
+      ./main
+
+in your terminal. The game will start automatically!
+
+### Initiating the Game
+1. Enter Player Details: When prompted, first enter the **number of rounds** you wished to play
+   
+   `Number of rounds for each player (must be an integer):`
+   
+2. Next, enter the the **Initial Cash** that every player will start with
+   
+   `Initial Cash (must be positive):`
+   
+   (We suggest 1500 if you have time and aim for an exciting game)
+
+3. Then, enter the **Number of Players** (2-4) you wished to play with, followed by their **Name** respectively
+   
+   `Number of Players (2-4):`
+   
+   `Player 1 name: (between 2-20 characters):`
+
+You are all set! Your journey now begins!
+
+### Commands
+
+-------------------------------------------------------------------------------------------------------------
+Meeting Project requirements.
 
 1.	Generation of random game sets or events:
    
