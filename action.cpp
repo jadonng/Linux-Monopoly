@@ -82,4 +82,4 @@ void buildproperty(Cell Board[], Player &playerstep){
 
     //The function returns no output
 
-};
+}
