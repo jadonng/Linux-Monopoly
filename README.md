@@ -109,3 +109,23 @@ wincheck.h: header file of the wincheck.cpp
 15.) wincheck.h:
 
      header file for wincheck.cpp
+
+list of libraries:
+
+cmath
+
+cstdlib
+
+ctime
+
+fstream
+
+iomanip
+
+iostream
+
+sstream
+
+string
+
+vector
