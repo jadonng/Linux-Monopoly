@@ -143,6 +143,8 @@ The game will end when the desired number of turns have been played, or one play
 
 If no one reaches MONOPOLY when the game ends, the player with the most assets will win!
 
+Enjoy!
+
 -------------------------------------------------------------------------------------------------------------
 ## Meeting Project requirements.
 
@@ -209,7 +211,7 @@ wincheck.h: header file of the wincheck.cpp
 
 4.) board.cpp:
 
-    contain the loadBoard function, which loads the intial board setup from board.txt
+    contain the loadBoard function, which loads the intial game setup from board.txt
 
 5.) board.h:
 
@@ -217,7 +219,7 @@ wincheck.h: header file of the wincheck.cpp
 
 6.) board.txt:
 
-    text file containing the initial setup of board
+    text file containing the initial setup of board, players can customize the board without knowing any programming language
 
 7.) checkstatus.cpp:
 
@@ -233,7 +235,7 @@ wincheck.h: header file of the wincheck.cpp
 
 10.) printBoard.cpp:
 
-     contain the printBoard function, which displays the entire board layout with the names and prices of various of lands
+     contain the printBoard function, which visualize the entire board layout with the names and prices of various of lands
 
 11.) printBoard.h:
 
@@ -255,7 +257,7 @@ wincheck.h: header file of the wincheck.cpp
 
      header file for wincheck.cpp
 
-list of libraries:
+list of libraries we have used:
 
 cmath
 
