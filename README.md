@@ -166,36 +166,7 @@ Enjoy!
    We use file input to load the board stored in board.txt and upload them to the array of board.
 
 5.	Program codes in multiple files:
-
-action.cpp: functions of buying no-owner land, buying properties, and paying rents to the owner of the land
-
-action.h: header file of action.cpp
-
-board.cpp: function of loading board to the array
-
-board.h: header file of board.cpp
-
-board.txt: txt file with the attributes of cells
-
-checkstatus.cpp: function of checking player status of money, items, etc.
-
-checkstatus.h: header file of checkstatus.cpp
-
-main.cpp: main program, with the function of action before rolling dices and after rolling.
-
-printBoard.cpp: function of printing the board alongside the names and prices of the lands on the screen
-
-printBoard.h: header file of printBoard.cpp
-
-structures.cpp: function of triggering events of diverse types of cells
-
-structures.h: declaring the structures, header file of structures.cpp
-
-wincheck.cpp: functions of checking winning of the players after specific turns and checking if a player broke
-
-wincheck.h: header file of the wincheck.cpp
-
-
+   
    Description of files
 
 1.) Makefile:
