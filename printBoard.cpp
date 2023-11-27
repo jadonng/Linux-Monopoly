@@ -5,8 +5,8 @@
 #include "board.h"
 
 const int BOARD_SIZE = 40;
-const int CELL_WIDTH = 25;  // Define a constant for cell width
-const std::string LINE = std::string(CELL_WIDTH + 2, '-');
+const int CELL_WIDTH = 24;  // Define a constant for cell width
+const std::string LINE = std::string(CELL_WIDTH + 1, '-');
 const std::string SPACE = std::string(CELL_WIDTH, ' ');
 
 std::string repeatString(const std::string& str, int times) {
@@ -24,42 +24,42 @@ void printBoard(Cell Board[]) {
     for (int i = 0; i <= side; i++) {
         std::cout << LINE;
     }
-    std::cout << std::endl;
+    std::cout << '-' << std::endl;
     for (int i = 0; i <= side; i++) {
-        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[i].name << "|";
+        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[i].name;
     }
-    std::cout << std::endl;
+    std::cout << "|" << std::endl;
     for (int i = 0; i <= side; i++) {
-        std::cout << "|" << SPACE << "|";
+        std::cout << "|" << SPACE;
     }
-    std::cout << std::endl;
+    std::cout << "|" << std::endl;
     for (int i = 0; i <= side; i++) {
         if (Board[i].type == 0) {  // If the cell is a Land
-            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[i].price << "|";
+            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[i].price;
         } else {
-            std::cout << "|" << SPACE << "|";
+            std::cout << "|" << SPACE;
         }
     }
-    std::cout << std::endl;
+    std::cout << "|" << std::endl;
     for (int i = 0; i <= side; i++) {
         std::cout << LINE;
     }
-    std::cout << std::endl;
+    std::cout << '-' << std::endl;
 
     // Print cells from the left and right columns
     for (int i = 1; i < side; i++) {
         // Left column
-        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[4*side - i].name << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7);
+        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[4*side - i].name << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16);
         // Right column
         std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[side + i].name << "|";
         std::cout << std::endl;
-        std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7) << "|" << SPACE << "|";
+        std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16) << "|" << SPACE << "|";
         std::cout << std::endl;
         // Left column
         if (Board[4*side - i].type == 0) {  // If the cell is a Land
-            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[4*side - i].price << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7);
+            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[4*side - i].price << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16);
         } else {
-            std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7);
+            std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16);
         }
         // Right column
         if (Board[side + i].type == 0) {  // If the cell is a Land
@@ -68,11 +68,9 @@ void printBoard(Cell Board[]) {
             std::cout << "|" << SPACE << "|" << SPACE;
         }
         std::cout << std::endl;
-        std::cout << LINE << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7) << LINE;
+	if (i < side - 1) {  
+        std::cout << LINE  << '-' << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16) << LINE << '-';
         std::cout << std::endl;
-        if (i < side - 1) {  
-            std::cout << LINE << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7) << LINE;
-            std::cout << std::endl;
 	}
     }
 
@@ -80,25 +78,25 @@ void printBoard(Cell Board[]) {
     for (int i = 0; i <= side; i++) {
         std::cout << LINE;
     }
-    std::cout << std::endl;
+    std::cout << '-' << std::endl;
     for (int i = 0; i <= side; i++) {
-        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[3*side - i].name << "|";
+        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[3*side - i].name;
     }
-    std::cout << std::endl;
+    std::cout << "|" << std::endl;
     for (int i = 0; i <= side; i++) {
-        std::cout << "|" << SPACE << "|";
+        std::cout << "|" << SPACE;
     }
-    std::cout << std::endl;
+    std::cout << "|" << std::endl;
     for (int i = 0; i <= side; i++) {
         if (Board[3*side - i].type == 0) {  // If the cell is a Land
-            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[3*side - i].price << "|";
+            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[3*side - i].price;
         } else {
-            std::cout << "|" << SPACE << "|";
+            std::cout << "|" << SPACE;
         }
     }
-    std::cout << std::endl;
+    std::cout << "|" << std::endl;
     for (int i = 0; i <= side; i++) {
         std::cout << LINE;
     }
-    std::cout << std::endl;
+    std::cout << '-' << std::endl;
 }
