@@ -1,4 +1,9 @@
 # COMP2113_Group30
+
+## Team members
+
+Jadon Ng Tsz Hei (3036076067) @jadonng @crxxom
+
 ## How to Play Text-Based Monopoly (HKU version) in C++
 
 Welcome to the world of HKU! 
