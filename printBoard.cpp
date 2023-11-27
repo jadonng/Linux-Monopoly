@@ -86,7 +86,7 @@ void printBoard(Cell Board[]) {
     }
     std::cout << std::endl;
     for (int i = 0; i <= side; i++) {
-        if (Board[2*side + i].type == 0) {  // If the cell is a Land
+        if (Board[3*side - i].type == 0) {  // If the cell is a Land
             std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[3*side - i].price << "|";
         } else {
             std::cout << "|" << SPACE << "|";
