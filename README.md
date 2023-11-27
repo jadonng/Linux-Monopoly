@@ -10,6 +10,8 @@ Poon Tsz Chung (3036077774) @TszChungPOON
 
 Yeung Cheuk Hin (3035939705) @Cyrus-Yeung
 
+Kwok Chak Fung (3036002688) @JoeCFKwok
+
 ## How to Play Text-Based Monopoly (HKU version) in C++
 
 Welcome to the world of HKU! 
