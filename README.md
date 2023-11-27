@@ -4,7 +4,7 @@
 Welcome to the world of HKU! 
 This guide will help you understand how to play the text-based Monopoly game we have built in C++.
 
-### Starting the Game
+### Before we start......
 
 By simply typing
 
@@ -38,6 +38,89 @@ in your terminal. The game will start automatically!
 You are all set! Your journey now begins!
 
 ### Commands
+
+The game will prompt all the actions you can possibly make when it is your turn, for example:
+
+```
+**Example**
+>> Player ABC's turn!
+Press the respective hotkey to choose your next action.
+1: Roll dice
+2: Check game status
+```
+The output above shows it is now Player ABC's turn, which includes **1. Roll Dice** and **2. Check game status**.
+
+You can safely assume all commands you would have to make will be Numbers.
+
+After you enter the desired command, for example
+
+`
+1
+`
+
+The game will run the command "Roll dice", which will roll 2 fair die and return the sum.
+
+```
+>> Player ABC's turn!
+Press the respective hotkey to choose your next action.
+1: Roll dice
+2: Check game status
+1
+>> You rolled 5!
+>> You have arrived MTR_Exit_A1 which has no owner with the price of 200
+```
+
+Similarly, you will then be prompted with another set of commands.
+
+```
+Press the respective hotkey to choose your next action.
+1: Buy land
+2: Check game status
+3: End Round
+```
+
+This time, you can choose from **1: Buy land** **2: Check game status** and **3: End Round**
+
+Your round will not end before you enter **3**, so you can check your status whenever you want.
+
+Right now, Let's try **1. Buy land**
+
+```
+1
+>> You have bought MTR_Exit_A1 for 200
+```
+
+After you buy the land, other players cannot buy it any more, instead,  when they land on the same cell in the future, they will have to pay you some land rent!
+
+For example:
+
+```
+>> You have pay 25 to ABC
+>> Your remaining balance is 1475
+```
+
+Now, let's keep our attention on actions after buying MTR_Exit_A1.
+
+You will again have to choose from a few commands.
+
+```
+Press the respective hotkey to choose your next action.
+1: Build property
+2: Check game status
+3: End Round
+```
+
+You can choose to **1: Build property** on the land, which is going to **DOUBLE** the rent other players have to play when they land on it!
+
+```
+>> You have build a house on MTR_Exit_A1!
+>> MTR_Exit_A1 currently have 1 houses.
+```
+
+Done! The rent of MTR_Exit_A1 has doubled!
+
+
+Or instead, you can always **2: Check game status** in your round, which will give you 
 
 -------------------------------------------------------------------------------------------------------------
 Meeting Project requirements.
