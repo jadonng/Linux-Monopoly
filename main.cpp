@@ -39,21 +39,27 @@ int main() {
 
     cout << "\nNumber of rounds for each player (must be an integer): ";
     cin >> rounds;
-    while (cin.fail() || rounds<=0){
+    //Assume user input must be an integer 
+    
+    while (rounds<=0){
         cout << "Invalid Input, Please Enter a positive integer." << endl;
         cin >> rounds;
     }
 
     cout << "\nInitial Cash (must be positive): ";
     cin >> initial_cash;
-    while (cin.fail() || initial_cash<=0){
+    //Assume user input must be an integer
+
+    while (initial_cash<=0){
         cout << "Invalid Input, Please Enter a positive integer." << endl;
         cin >> initial_cash;
     }
 
     cout << "\nNumber of Players (2-4): ";
     cin >> num_player;
-    while (cin.fail() || num_player>4 || num_player<2){
+    //Assume user input must be an integer
+
+    while (num_player>4 || num_player<2){
         cout << "Invalid Input, Please Enter a positive integer between 2-4." << endl;
         cin >> rounds;
     }
