@@ -70,6 +70,10 @@ void printBoard(Cell Board[]) {
         std::cout << std::endl;
         std::cout << LINE << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7) << LINE;
         std::cout << std::endl;
+        if (i < side - 1) {  
+            std::cout << LINE << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-7) << LINE;
+            std::cout << std::endl;
+	}
     }
 
     // Print bottom row
