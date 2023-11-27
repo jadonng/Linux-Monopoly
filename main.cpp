@@ -79,6 +79,8 @@ int main() {
     }
     cout << "\n";
 
+    cout << "The board is in clockwise direction." << endl;
+    
     // Main Loop
     for (cur_round = 0; cur_round < rounds * num_player; cur_round++) {
 
