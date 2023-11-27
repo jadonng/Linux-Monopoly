@@ -36,12 +36,27 @@ int main() {
     cout << "*************************************" << endl;
     cout << "\nPlease fill in the following configurations to start the game." << endl;
     // add some defensive programming later
+
     cout << "\nNumber of rounds for each player (must be an integer): ";
     cin >> rounds;
+    while (cin.fail() || rounds<=0){
+        cout << "Invalid Input, Please Enter a positive integer." << endl;
+        cin >> rounds;
+    }
+
     cout << "\nInitial Cash (must be positive): ";
     cin >> initial_cash;
+    while (cin.fail() || initial_cash<=0){
+        cout << "Invalid Input, Please Enter a positive integer." << endl;
+        cin >> initial_cash;
+    }
+
     cout << "\nNumber of Players (2-4): ";
     cin >> num_player;
+    while (cin.fail() || num_player>4 || num_player<2){
+        cout << "Invalid Input, Please Enter a positive integer between 2-4." << endl;
+        cin >> rounds;
+    }
     cin.ignore();
 
 

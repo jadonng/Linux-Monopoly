@@ -44,7 +44,8 @@ void payrent(Cell Board[], Player &playerstep, Player &playerown){
     int position = playerstep.pos->ID;
     playerstep.money -= Board[position].rent * pow(2,Board[position].property);
     playerown.money += Board[position].rent* pow(2,Board[position].property);
-    cout << ">> You have pay " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.name << endl;
+    cout << ">>" << Board[position].name << " is owned by " << playerown.name << endl;
+    cout << ">> You have paid " << Board[position].rent*pow(2,Board[position].property) << " to " << playerown.name << endl;
     cout << ">> Your remaining balance is " << playerstep.money << endl;
 
     //The function returns no output
@@ -55,6 +56,7 @@ void buildproperty(Cell Board[], Player &playerstep){
     
     //This function intakes the Player and the Cell
     //Will set the price for the property, then build +1 property on the Cell
+    //This function can be called multipled time in the same round
 
     int position = playerstep.pos->ID;
     int price;
