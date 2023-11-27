@@ -120,10 +120,31 @@ You can choose to **1: Build property** on the land, which is going to **DOUBLE*
 Done! The rent of MTR_Exit_A1 has doubled!
 
 
-Or instead, you can always **2: Check game status** in your round, which will give you 
+Or instead, you can always **2: Check game status** in your round, which will show all information about you. 
+
+```
+>> Player: ABC
+>> Your Position: 5
+>> Your Money: 50
+>> Jail card: 0
+>> Your Land(properties): MTR_Exit_A1(1)
+
+```
+
+Don't forget to `3: End Round` and pass the control to your friend!
+
+All players will take turns accessing the terminal when it is their turn.
+
+That's all for the basic commands! You can travel freely around HKU now.
+
+We’ve incorporated a multitude of unexpected elements into the game to heighten the excitement. These elements, which you may encounter, are left for your discovery. 
+
+The game will end when the desired number of turns have been played, or one player reaches **MONOPOLY** (All other players went bankrupt). Whichever earlier.
+
+If no one reaches MONOPOLY when the game ends, the player with the most assets will win!
 
 -------------------------------------------------------------------------------------------------------------
-Meeting Project requirements.
+## Meeting Project requirements.
 
 1.	Generation of random game sets or events:
    
