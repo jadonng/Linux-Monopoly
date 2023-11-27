@@ -25,6 +25,6 @@ main: structures.o board.o action.o checkstatus.o wincheck.o printBoard.o main.o
 	g++ $(FLAGS) $^ -o $@
 
 clean:
-	rm -f main main.o printBoard.o wincheck.o checkstatus.o action.o structures.o
+	rm -f main main.o printBoard.o wincheck.o checkstatus.o action.o structures.o board.o
 
 .PHONY: clean
