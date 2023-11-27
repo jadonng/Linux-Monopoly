@@ -95,6 +95,7 @@ After you buy the land, other players cannot buy it any more, instead,  when the
 For example:
 
 ```
+>> MTR_Exit_A1 is owned by DEF
 >> You have pay 25 to ABC
 >> Your remaining balance is 1475
 ```
