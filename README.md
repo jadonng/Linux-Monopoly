@@ -16,7 +16,7 @@ Kwok Chak Fung (3036002688) @JoeCFKwok
 
 Monopoly is a classic board game that invites players to navigate an economic landscape, buying, trading, and developing properties. The goal is to drive others into bankruptcy and become the wealthiest player. It’s a game of strategy, chance, and negotiation, offering valuable lessons in finance and investment.
 
-In our HKU version of Monopoly, we allow players to get to know of the names of the buildings in HKU while enjoying an exciting competition. We also made a few creative and fun modifications to the traditional version to fasten the gameplay (e.g. each property will double the land rent).
+In our HKU version of Monopoly, we allow players to get to know of the names of the buildings in HKU while enjoying an exciting competition. We also made a few creative and fun modifications to the traditional version to fasten the gameplay (e.g. each property will double the land rent instead of increasing linearly).
 
 The setting of the game includes a board (Composed of 40 Cells), with each cell representing either some gimmicks or a place in HKU, players can "buy" the land and build properties on it, when other players land on an owned land, they will have to pay land rent to the owner.
 
