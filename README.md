@@ -147,7 +147,7 @@ If no one reaches MONOPOLY when the game ends, the player with the most assets w
 Enjoy!
 
 -------------------------------------------------------------------------------------------------------------
-## Meeting Project requirements.
+## Meeting Project requirements
 
 1.	Generation of random game sets or events:
    
