@@ -180,11 +180,11 @@ Enjoy!
 
 1.	Generation of random game sets or events:
    
-   We use random in rolling the dice to determine the step of player to move. In addition, when the player steps on the chance(punishment cell, we use random to choose one “chance” from all “chances”.
+   We use random in rolling the dice to determine the step of the player to move. In addition, when the player steps on the chance cells, we use random to choose one “chance” from all “chances”.
 
 2.	Data structures for storing game status:
 
-   For data structures, we have Player to store their name, money, land, some items and so on. Besides, we have Cell to store the price, position, number of properties and so on. We also use array, vector, and other data structures to store diverse data like players, cells(board), lands and so on.
+   For data structures, we have Player to store their name, money, land, some items, and so on. Besides, we have Cell to store the price, position, number of properties, and so on. We also use array, vector, and other data structures to store diverse data like players, cells(board), lands, and so on.
 
 3.	Dynamic memory management:
 
