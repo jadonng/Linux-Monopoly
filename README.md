@@ -28,6 +28,8 @@ We have made one simple assumptions for this game: The user input type must be c
 
 ## How to Play Text-Based Monopoly (HKU version) in C++
 
+Video Demonstration: https://www.youtube.com/watch?v=ZzAmJHxITiE
+
 Welcome to the world of HKU! 
 This guide will help you understand how to play the text-based Monopoly game we have built in C++.
 
