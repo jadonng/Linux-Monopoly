@@ -4,7 +4,7 @@
 
 Jadon Ng Tsz Hei (3036076067) @jadonng @crxxom
 
-Tony Song Wenhao (3035974066) @swh2004
+Song Wenhao (3035974066) @swh2004
 
 Poon Tsz Chung (3036077774) @TszChungPOON
 
