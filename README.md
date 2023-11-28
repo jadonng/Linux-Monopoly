@@ -260,20 +260,20 @@ Enjoy!
 
 list of libraries we have used:
 
-cmath
+cmath (support pow function for calculating rent)
 
-cstdlib
+cstdlib (support srand and rand functions to generate random numbers for chance and dice)
 
-ctime
+ctime (support time(NULL) for updating seed in rand function)
 
-fstream
+fstream (to extract information from board.txt)
 
-iomanip
+iomanip (to format board in printBoard function)
 
-iostream
+iostream (for input and output)
 
-sstream
+sstream (used to repeat string)
 
-string
+string (data type for storing names)
 
-vector
+vector (data type for storing list of lands per player)
