@@ -49,17 +49,17 @@ void printBoard(Cell Board[]) {
     // Print cells from the left and right columns
     for (int i = 1; i < side; i++) {
         // Left column
-        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[4*side - i].name << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16);
+        std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[4*side - i].name << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size() - 16);
         // Right column
         std::cout << "| " << std::setw(CELL_WIDTH - 1) << std::left << Board[side + i].name << "|";
         std::cout << std::endl;
-        std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16) << "|" << SPACE << "|";
+        std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size() - 16) << "|" << SPACE << "|";
         std::cout << std::endl;
         // Left column
         if (Board[4*side - i].type == 0) {  // If the cell is a Land
-            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[4*side - i].price << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16);
+            std::cout << "| $" << std::setw(CELL_WIDTH - 2) << Board[4*side - i].price << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size() - 16);
         } else {
-            std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16);
+            std::cout << "|" << SPACE << "|" << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size() - 16);
         }
         // Right column
         if (Board[side + i].type == 0) {  // If the cell is a Land
@@ -69,7 +69,7 @@ void printBoard(Cell Board[]) {
         }
         std::cout << std::endl;
 	if (i < side - 1) {  
-        std::cout << LINE  << '-' << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size()-16) << LINE << '-';
+        std::cout << LINE  << '-' << repeatString(SPACE, 9).substr(0, repeatString(SPACE, 9).size() - 16) << LINE << '-';
         std::cout << std::endl;
 	}
     }
