@@ -18,13 +18,19 @@ Monopoly is a classic board game that invites players to navigate an economic la
 
 In our HKU version of Monopoly, we allow players to get to know of the names of the buildings in HKU while enjoying an exciting competition. We also made a few creative and fun modifications to the traditional version to fasten the gameplay (e.g. each property will double the land rent instead of increasing linearly).
 
+### Game Rules
+
+The goal of the game is to become the wealthiest player within the desired number of rounds by making different decisions.
+
 The setting of the game includes a board (Composed of 40 Cells), with each cell representing either some gimmicks or a place in HKU, players can "buy" the land and build properties on it, when other players land on an owned land, they will have to pay land rent to the owner.
 
 Players will take turns to throw dice to decide how many steps they will move clockwise on the board, and take action according to the cell that they land on.
 
 The winner will be declared when all other players go bankrupt, or the wealthiest person remaining when the desired number of turns have ended.
 
-We have made one simple assumptions for this game: The user input type must be correct (Will not enter string for an int variable)
+### Assumptions
+
+We have made one simple assumption for this game: The user input type must be correct (Will not enter string for an int variable)
 
 ## How to Play Text-Based Monopoly (HKU version) in C++
 
